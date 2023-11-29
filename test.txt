@@ -1,0 +1,1 @@
+Fichero de prueba para confirmar el funcionamiento de git y github.
