@@ -7,7 +7,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 
 # Lista de archivos fuente
-SOURCES = main.cpp usuarioVisitante.cpp
+SOURCES = main.cpp usuarioVisitante.cpp usuarioRegistrado.cpp organizador.cpp director.cpp
 
 # Genera la lista de archivos objeto
 OBJECTS = $(SOURCES:.cpp=.o)

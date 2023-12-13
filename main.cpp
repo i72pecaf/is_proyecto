@@ -1,7 +1,10 @@
 #include <iostream>
 
-
 #include "usuarioVisitante.hpp"
+#include "usuarioRegistrado.hpp"
+#include "organizador.hpp"
+#include "director.hpp"
+#include "actividad.hpp"
 
 using namespace std;
 
@@ -20,7 +23,7 @@ int main(){
     cout << "Bienvenido al gestor de actividades de la UCO" << endl;
     cout << "---------------------------------------------" << endl;
     cout << "[1] - Acceder con correo de la UCO" << endl;
-    cout << "[2] - Acceder como visitante (Solo podras ver los anuncios)" << endl;
+    cout << "[2] - Acceder como visitante (Solo podras ver las actividades)" << endl;
     cout << "[3] - Cerrar el programa" << endl;
     cout << "\n> ";
     
@@ -41,24 +44,27 @@ int main(){
 
             // Ahora, mostramos las diferentes funciones dependiendo de su rol.
             switch (rol) {
-                case 1: // Caso del organizador (admin)
+                case 1: { // Caso del organizador (admin)
+
+                    organizador org;
+
                     cout << "\n---------------------------------------------" << endl;
                     cout << "Hola coordinador " << correo << ". Indica qué quieres hacer" << endl;
                     cout << "---------------------------------------------" << endl;
-                    cout << "[1] - Crear anuncio" << endl;
-                    cout << "[2] - Ver todos los anuncio" << endl;
+                    cout << "[1] - Crear actividad" << endl;
+                    cout << "[2] - Ver todas las actividades" << endl;
                     cout << "[3] - Cerrar el programa" << endl;
                     cout << "\n> ";
 
                     cin >> optRol;
 
                     switch (optRol)  { // Switch para el coordinador
-                        case 1: // Creacion de un anuncio
-
+                        case 1: // Creacion de una actividad
+                            org.crearActividad();
                         break;
                         
-                        case 2: // Creacion de un anuncio
-
+                        case 2: // Ver todas las actividades
+                            org.verTodasActividades();
                         break;
 
                         case 3: // Salir del programa
@@ -69,23 +75,31 @@ int main(){
                             cout << "\nERROR: Opcion introducida incorrecta. Finalizando programa..." << endl;
                         break;
                     }
-
+                }
                 break; 
 
-                case 2: // Caso del director academico
+                case 2: {// Caso del director academico
+
+                    director dct;
+                    
                     cout << "\n---------------------------------------------" << endl;
                     cout << "Hola director académico " << correo << ". Indica qué quieres hacer" << endl;
                     cout << "---------------------------------------------" << endl;
                     cout << "[3] - Cerrar el programa " << endl;
                     cout << "\n> ";
 
+                    dct.completarActividad();
+                }
                 break;
 
-                case 3: // Caso del usuario registrado
+                case 3: {// Caso del usuario registrado
+
+                    usuarioRegistrado usuario_r(correo); // Creamos el objeto del usuario registrado con los metodos
+
                     cout << "\n---------------------------------------------" << endl;
                     cout << "Hola usuario " << correo << ". Indica qué quieres hacer" << endl;
                     cout << "---------------------------------------------" << endl;
-                    cout << "[1] - Ver anuncios" << endl;
+                    cout << "[1] - Ver actividades publicadas" << endl;
                     cout << "[2] - Preeinscribirse en un anuncio (Necesitas su código)" << endl;
                     cout << "[3] - Cerrar el programa" << endl;
                     cout << "\n> ";
@@ -93,23 +107,23 @@ int main(){
                     cin >> optRol;
 
                     switch (optRol)  { // Switch para el usuario registrado
-                        case 1: // Ver anuncios publicados
-
-                            break;
+                        case 1: // Ver actividades publicadas
+                            usuario_r.verActividadesPublicadas();
+                        break;
                         
                         case 2: // Preeinscripción en un anuncio
-
-                            break;
+                            usuario_r.preinscripcionActividad();
+                        break;
 
                         case 3: // Salir del programa
                             cout << "\nSaliendo del programa..." << endl;
-                            break;
+                        break;
 
                         default: // Error al introducir una opcion no existente
                             cout << "\nERROR: Opcion introducida incorrecta. Finalizando programa..." << endl;
-                            break;
+                        break;
                     }
-
+                }
                 break;
             
                 default:
@@ -120,7 +134,7 @@ int main(){
         break;
         
         case 2: // Modo visitante
-            cout << "\nSe procede a mostrar los anuncios..." << endl;
+            cout << "\nSe procede a mostrar las actividades..." << endl;
             usuario_v.verActividadesPublicadas();
         break;
         

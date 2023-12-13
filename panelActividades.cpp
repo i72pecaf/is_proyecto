@@ -1,0 +1,10 @@
+#include "director.hpp"
+#include <iostream>
+
+director::director() {
+
+}
+
+void director::verActividadesAsignadas() {
+    
+}
