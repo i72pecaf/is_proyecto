@@ -11,17 +11,16 @@ void usuarioVisitante::login(std::string &correo, int &rol, bool &flagCorreo) {
     std::ifstream f; 
     
     std::string linea, subCadena;
-    std::string auxRol;  
-    std::string email;
+    std::string auxRol;
     std::string ficheroDatos = "datosUsuariosUCO.txt"; // Fichero con los datos de los usuarios, su rol y correo
     
     std::cout << "\nIntroduce tu correo de la UCO: "; 
-    std::cin >> email;
+    std::cin >> correo;
 
     // Se procede a comprobar si existe el usuario con ese correo
     f.open(ficheroDatos); // Abrimos el fichero
     if(!f.is_open()){ // Manejo de errores, caso donde no se abra bien el fichero
-        std::cout << "Error al abrir el fichero" << std::endl;
+        std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
         flagCorreo = false;
     } else {
         // En caso de que abramos bien el fichero, continuamos el proceso
@@ -29,7 +28,7 @@ void usuarioVisitante::login(std::string &correo, int &rol, bool &flagCorreo) {
             std::istringstream stream(linea); // Objeto para leer las palabras de la cadena (linea del fichero)
                     
             while (stream >> subCadena) { // Vamos por cada una de las palabras de la linea del fichero
-                if(subCadena == email){ // Si encontramos el correo actualizamos la flag.
+                if(subCadena == correo){ // Si encontramos el correo actualizamos la flag.
                     flagCorreo = true;
                 }
 
