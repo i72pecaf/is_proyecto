@@ -17,7 +17,15 @@ int main(){
     bool flagCorreo = false; // Para saber si se ha encontrado el correo o no.
 
     usuarioVisitante usuario_v;
-    
+
+    /* ====================== Borrar tras desarrollar ======================*/
+    organizador org;
+    correo = "i72pecaf@uco.es";
+    org.crearActividad();
+
+    cout << "\n\n\n";
+    /* ===================================================================== */
+
     // -- Bloque de código
     cout << "\n---------------------------------------------" << endl;
     cout << "Bienvenido al gestor de actividades de la UCO" << endl;
