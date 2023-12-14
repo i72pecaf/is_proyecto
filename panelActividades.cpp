@@ -31,12 +31,9 @@ void panelActividades::inscribirListaEspera() {
 
 std::string panelActividades::tiposActividades() {
     std::string cadenaTipos;
-    //std::vector<std::string> auxTipos;
-
-    std::vector<std::string> aux = this->get_listaTiposActividades();
     // Obtenemos la variable privada de esta clase
 
-    for(std::string i : aux){ // Iteramos sobre el vector de strings con los tipos
+    for(std::string i : this->get_listaTiposActividades()){ // Iteramos sobre el vector de strings con los tipos
         cadenaTipos = i + " - " + cadenaTipos; // Vamos metiendo los diferentes tipos en una unica cadena
     }
 
@@ -56,8 +53,10 @@ void panelActividades::borrarDirectores() {
     
 }
 
-void panelActividades::verDirectoreS() {
-    
+void panelActividades::verDirectores() {
+    for(std::string i : this->get_listaDirectoresAcademicos()){ // Iteramos sobre el vector de directores
+        std::cout<< "| " << i << std::endl; 
+    }
 }
 
 

@@ -15,6 +15,7 @@ class actividad {
         std::string _descripcion;
         std::string _tema;
         std::string _ubicacion;
+        int _aforo;
         float _precio;
         std::string _ponente;
         std::string _fechaInicio;
@@ -37,6 +38,7 @@ class actividad {
             _descripcion = "";
             _tema = "";
             _ubicacion = "";
+            _aforo = 0;
             _precio = 0.0;
             _ponente = "";
             _fechaInicio = "";
@@ -70,6 +72,9 @@ class actividad {
 
         inline void set_ubicacion(std::string ubicacion) { _ubicacion = ubicacion; }
         inline std::string get_ubicacion() { return _ubicacion; }
+
+        inline void set_aforo(float aforo) { _aforo = aforo; }
+        inline float get_aforo() { return _aforo; }
 
         inline void set_precio(float precio) { _precio = precio; }
         inline float get_precio() { return _precio; }

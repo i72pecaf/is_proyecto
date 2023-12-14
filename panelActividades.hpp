@@ -19,6 +19,10 @@ class panelActividades {
     public:
         panelActividades() {
             _listaTiposActividades = {"Congreso", "Debate", "Ponencia", "Seminario", "Taller"}; // Tipos de actividades según los requisitos
+            _listaDirectoresAcademicos = { // Lista de directores academicos
+                "j55reora@uco.es", 
+                "i12dirud@uco.es"
+            };
         }
 
         // Getters y setters de los atributos. Implementados pero no son necesarios de cara a las historias de usuario obligatorias
@@ -41,7 +45,7 @@ class panelActividades {
         std::string tiposActividades(); // Historia de usuario : Crear actividad - Necesario para su funcionamiento
         void introducirDirectores();
         void borrarDirectores();
-        void verDirectoreS();
+        void verDirectores(); // Historia de usuario : Crear actividad - Necesario para su funcionamiento
 
 };
 
