@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-class activdad {
+class actividad {
     
     private:
         int _idAnuncio;
@@ -47,7 +47,7 @@ class activdad {
             _nivel = "";
             _dias = "";
             _estado = false;
-            _listaEspera({}) // Establecemos el array vacio por defecto, sin nadie en la lista de espera
+            _listaEspera = std::vector<std::string>(); // Establecemos el array vacio por defecto, sin nadie en la lista de espera
         }
 
         inline void set_tipo(std::string tipo) { _tipo = tipo; }

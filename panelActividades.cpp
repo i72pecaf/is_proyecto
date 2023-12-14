@@ -1,10 +1,10 @@
-#include "director.hpp"
+#include "panelActividades.hpp"
 #include <iostream>
 
-director::director() {
+panelActividades::panelActividades() {
 
 }
 
-void director::verActividadesAsignadas() {
+void panelActividades::panelActividades() {
     
 }

@@ -10,13 +10,13 @@ class mail {
     private:
         std::string _cuerpo;
         std::vector<actividad> _listaActividades;
-        std::vector<string> _destinatarios;
+        std::vector<std::string> _destinatarios;
         
 
     public:
 
         mail();
-        void mostrarAnuncio();
+        void verActividadesAsignadas();
 
 
 };
