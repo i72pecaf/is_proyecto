@@ -37,7 +37,7 @@ class panelActividades {
 
         void buscarActividad();
         void mostrarActividades(); // Historia de usuario : Mostrar actividades
-        void introducirActividad(); // Historia de usuario : Crear actividad
+        void introducirActividad(actividad actividadNueva, bool& flagActividadGuardada); // Historia de usuario : Crear actividad
         void borrarActividad();
         void numeroActividades();
         void preinscribirUsuario(); // Historia de usuario : Preeinscripcion en una actividad

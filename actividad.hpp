@@ -8,7 +8,7 @@
 class actividad {
     
     private:
-        int _idAnuncio;
+        int _idActividad;
         std::string _tipo;
         std::string _director;
         float _asistencia;
@@ -31,7 +31,7 @@ class actividad {
 
     public:
         actividad() { // Constructor por defecto, con valores por defecto
-            _idAnuncio = 0;
+            _idActividad = 0;
             _tipo = "";
             _director = "";
             _asistencia = 0.0;
@@ -52,6 +52,9 @@ class actividad {
             _estado = false;
             _listaEspera = std::vector<std::string>(); // Establecemos el array vacio por defecto, sin nadie en la lista de espera
         }
+
+        inline void set_idActividad(int id) { _idActividad = id; }
+        inline int get_idActividad() { return _idActividad; }
 
         inline void set_tipo(std::string tipo) { _tipo = tipo; }
         inline std::string get_tipo() { return _tipo; }

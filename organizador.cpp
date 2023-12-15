@@ -18,6 +18,7 @@ void organizador::crearActividad() {
     int contador; // Para el control de un unico ponente
     // Variables para obtener los datos de la actividad que quiere crear el usuario
     int aforoActividad;
+    int idActividad;
     
     float asistenciaActividad;
     float precioActividad;
@@ -46,6 +47,7 @@ void organizador::crearActividad() {
     bool flagPonente = false; // Por defecto, no se ha introducido un unico ponente
     bool flagFechas = false; // Por defecto, las fechas introducidas no son correctas
     bool flagTipoDebate = false; // Por defecto, el tipo del debate no es correcto
+    bool flagActividadGuardada = false; // Por defecto, no se ha guardado la actividad
 
     // Objetos para manejar los anuncios
     actividad actividadNueva; // Creamos la actividad para ir completandola.
@@ -56,11 +58,11 @@ void organizador::crearActividad() {
     std::cout << "Formulario de creacion de una actividad" << std::endl;
     std::cout << "---------------------------------------" << std::endl;
 
-/* BORRAR - SE USA PARA EL DESARROLLO */
-flagTipo = true;
-flagDirectores = true;
-flagAsistencia = true;
-
+    // ----- Generamos un identificador para el anuncios -----
+    idActividad = static_cast<int>(std::time(nullptr)); // Generamos un id aleatorio, usamos el tiempo para ello
+    // Necesitamos hacer un casteo para pasar de time_t a int
+    actividadNueva.set_idActividad(idActividad); 
+    // ---------------
 
     // ----- Pedimos al usuario el tipo comprobando que sea correcto -----
     while(!flagTipo){
@@ -70,8 +72,6 @@ flagAsistencia = true;
 
         std::cout << "\n> ";
         std::cin >> tipoActividad;
-
-        //vector_tiposActividades = panel.get_listaTiposActividades();
 
         for(std::string i : panel.get_listaTiposActividades()){ // Iteramos sobre el vector de strings con los tipos
             if(tipoActividad == i) { // Comprobamos que el valor introducido por el usuario es correcto
@@ -393,7 +393,7 @@ flagAsistencia = true;
         std::cin >> optGuardar;
 
         if(optGuardar == 1) { // Guardamos el anuncio
-
+            panel.introducirActividad(actividadNueva, flagActividadGuardada);
         } else {
             std::cout << " Anuncio no guardado. Saliendo..." << std::endl;
         }
