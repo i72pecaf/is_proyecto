@@ -84,10 +84,10 @@ class actividad {
         inline std::string get_ponente() { return _ponente; }
 
         inline void set_fechaInicio(std::tm fechaInicio) { _fechaInicio = fechaInicio; }
-        inline std::tm get_fechaInicio() { return _fechaInicio; }
+        inline std::tm& get_fechaInicio() { return _fechaInicio; }
 
         inline void set_fechaFinal(std::tm fechaFinal) { _fechaFinal = fechaFinal; }
-        inline std::tm get_fechaFinal() { return _fechaFinal; }
+        inline std::tm& get_fechaFinal() { return _fechaFinal; }
 
         inline void set_tipoDebate(std::string tipoDebate) { _tipoDebate = tipoDebate; }
         inline std::string get_tipoDebate() { return _tipoDebate; }

@@ -14,8 +14,8 @@ organizador::organizador() {
 
 void organizador::crearActividad() {
     /* PARTE DE LA HISTORIA DE USUARIO OBLIGATORIA : CREAR ACTIVIDAD*/
-    int opt; // Para el switch
-
+    int opt, optGuardar; // Para el switch
+    int contador; // Para el control de un unico ponente
     // Variables para obtener los datos de la actividad que quiere crear el usuario
     int aforoActividad;
     
@@ -30,6 +30,11 @@ void organizador::crearActividad() {
     std::string temaActividad;
     std::string ubicacionActividad;
     std::string ponenteActividad;
+    std::string duracionActividad;
+    std::string tareasActividad;
+    std::string nivelActividad;
+    std::string diasActividad;
+    std::string tipoDebateActividad;
 
     // Usamos la libreria ctime de C para el tratamiento de fechas 
     struct tm fechaInicioActividad, fechaFinActividad;
@@ -40,6 +45,7 @@ void organizador::crearActividad() {
     bool flagAsistencia = false; // Por defecto, no se ha introducido un valor valido
     bool flagPonente = false; // Por defecto, no se ha introducido un unico ponente
     bool flagFechas = false; // Por defecto, las fechas introducidas no son correctas
+    bool flagTipoDebate = false; // Por defecto, el tipo del debate no es correcto
 
     // Objetos para manejar los anuncios
     actividad actividadNueva; // Creamos la actividad para ir completandola.
@@ -132,7 +138,7 @@ flagAsistencia = true;
 
     switch (opt) {
         case 1: // Caso en el que completamos el anuncio
-/*     DESCOMENTAR TRAS DESARROLLAR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!       
+    
             // ----- Pedimos al usuario el nombre de la actividad -----
             std::cout << "Introduce el nombre de la actividad: ";
             std::cin >> nombreActividad;
@@ -168,17 +174,33 @@ flagAsistencia = true;
             std::cin >> precioActividad;
             actividadNueva.set_precio(precioActividad); // Añadimos el valor al nuevo actividad
             // ---------------
-*/
+
             // ----- Pedimos al usuario el ponente de la actividad -----
-/*            while(!flagFechas){
+            while(!flagPonente){
                 std::cout << "Introduce el ponente de la actividad (Si la actividad es una ponencia, mas tarde podras añadir mas): ";
                 std::cin >> ponenteActividad;
+                
+                // Comprobamos que haya solo un @, osea, que haya solo un ponente
+                for (char c : ponenteActividad) {
+                    if (c == '@') {
+                        contador++;
+                    }
+                }
+                // Si solo hay un correo, continuamos
+                if(contador==1){
+                    flagPonente = true;
+                }
 
-
-
+                if(!flagPonente) { // En el caso de que no este bien el ponente, solicitamos de nuevo al usuario
+                    std::cout << "ERROR: Has introducido mas de un ponente o no es un correo" << std::endl;
+                }
+                // Reseteamos el cin para leer correctamente y borramos el buffer de entrada para no leer restos anteriores
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            }
                 actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
             // ---------------
-*/
+
 
             // ----- Pedimos al usuario los ponentes de la actividad -----
             while(!flagFechas){ // Pedimos las fechas hasta que sean validas
@@ -201,7 +223,6 @@ flagAsistencia = true;
 
                 if(!flagFechas) { // En el caso de que las fechas no sean correctas, solicitamos de nuevo al usuario
                     std::cout << "ERROR: Las fechas no son correctas, vuelve a intentarlo" << std::endl;
-
                 }
                 // Reseteamos el cin para leer correctamente y borramos el buffer de entrada para no leer restos anteriores
                 std::cin.clear();
@@ -212,26 +233,99 @@ flagAsistencia = true;
             actividadNueva.set_fechaFinal(fechaFinActividad); // Añadimos el valor al nuevo actividad      
             // ---------------
 
+
             // Ahora rellenamos los campos dependiendo del tipo de actividad que sea
-            if(tipoActividad = "Debate") {
+            if(tipoActividad == "Debate") {
                 
-            
+                while(!flagTipoDebate){
+                    // ----- Pedimos al usuario el tipo del debate -----
+                    std::cout << "Introduce el tipo del dabate (Ordinario o Extraordinario): ";
+                    std::cin >> tipoDebateActividad;
+
+                    if(tipoDebateActividad == "Ordinario" || tipoDebateActividad == "Extraordinario") { // Si es correcto...
+                        flagTipoDebate = true; // ... actualizamos la bandera
+                    }
+
+                    if(!flagTipoDebate) { // En el caso de que el tipo del debate sean incorrecto, solicitamos de nuevo al usuario
+                        std::cout << "ERROR: El tipo de debate no es correcto, vuelve a intentarlo" << std::endl;
+                    }
+                    // ---------------
+                }
+
+                actividadNueva.set_tipoDebate(tipoDebateActividad); // Añadimos el valor al nuevo actividad
+
             } else {
-                if(tipoActividad = "Ponencia") {
+                if(tipoActividad == "Ponencia") {
                     // ----- Pedimos al usuario los ponentes de la actividad -----
-                    std::cout << "Introduce informacion sobre el/los ponente/s de la actividad: ";
+                    std::cout << "Introduce informacion sobre el/los ponente/s de la actividad (Escribe el anterior tambien): ";
                     std::cin >> ponenteActividad;
                     actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
                     // ---------------
                 
                 } else  {
-                    if(tipoActividad = "Seminario") {
-
+                    if(tipoActividad == "Seminario") {
+                        // ----- Pedimos al usuario la duracion de la actividad -----
+                        std::cout << "Introduce informacion sobre la duracion de la actividad: ";
+                        std::cin >> duracionActividad;
+                        actividadNueva.set_duracion(duracionActividad); // Añadimos el valor al nuevo actividad
+                        // ---------------
+                        
+                        // ----- Pedimos al usuario las tareas de la actividad -----
+                        std::cout << "Introduce informacion sobre las tareas de la actividad: ";
+                        std::cin >> tareasActividad;
+                        actividadNueva.set_tareas(tareasActividad); // Añadimos el valor al nuevo actividad
+                        // ---------------                    
                     
                     } else {
-                        if(tipoActividad = "Taller") {
-
+                        if(tipoActividad == "Taller") {
+                            // ----- Pedimos al usuario el nivel de la actividad -----
+                            std::cout << "Introduce informacion sobre el nivel de la actividad: ";
+                            std::cin >> nivelActividad;
+                            actividadNueva.set_nivel(nivelActividad); // Añadimos el valor al nuevo actividad
+                            // ---------------
+                            
+                            // ----- Pedimos al usuario los dias de la actividad -----
+                            std::cout << "Introduce informacion sobre los dias de la actividad: ";
+                            std::cin >> diasActividad;
+                            actividadNueva.set_dias(diasActividad); // Añadimos el valor al nuevo actividad
+                            // ---------------     
                         }
+                    }
+                }
+            }
+
+            // Ahora mostramos el anuncio completo al usuario y decide si quiere guardarlo o no
+            std::cout << "Preview de la actividad" << std::endl;
+            std::cout << "-----------------------" << std::endl;
+            std::cout << "Tipo: " << actividadNueva.get_tipo() << std::endl;
+            std::cout << "Director: " << actividadNueva.get_director() << std::endl;
+            std::cout << "Asistencia: " << actividadNueva.get_asistencia() << std::endl;
+
+            if(opt == 1){ // Si se ha decidido completar el anuncio, se muestra el resto
+                
+                std::cout << "Nombre: " << actividadNueva.get_nombre() << std::endl;
+                std::cout << "Descripcion: " << actividadNueva.get_descripcion() << std::endl;
+                std::cout << "Tema: " << actividadNueva.get_tema() << std::endl;
+                std::cout << "Ubicacion: " << actividadNueva.get_ubicacion() << std::endl;
+                std::cout << "Aforo: " << actividadNueva.get_aforo() << std::endl;
+                std::cout << "Precio: " << actividadNueva.get_precio() << std::endl;
+                std::cout << "Ponente/es: " << actividadNueva.get_ponente() << std::endl;
+                // Para mostrar, usamos put_time con los elementos de la fecha, que en este caso son dia mes y año
+                std::cout << "Fecha de inicio: " << std::put_time(&actividadNueva.get_fechaInicio(), "%d/%m/%Y") << std::endl;
+                std::cout << "Fecha de finalizacion: " << std::put_time(&actividadNueva.get_fechaFinal(), "%d/%m/%Y") << std::endl;
+
+                if(actividadNueva.get_tipo() == "Debate") {
+                    std::cout << "Tipo de debate: " << actividadNueva.get_tipoDebate() << std::endl;
+
+                } else { // La ponencia no hace falta ponerla, ya mostramos antes los ponentes
+                    if(actividadNueva.get_tipo() == "Seminario") {
+                        std::cout << "Duracion: " << actividadNueva.get_duracion() << std::endl;
+                        std::cout << "Tareas: " << actividadNueva.get_tareas() << std::endl;
+                    } else {
+                        if(actividadNueva.get_tipo() == "Taller") {
+                            std::cout << "Nivel: " << actividadNueva.get_nivel() << std::endl;
+                            std::cout << "Dias: " << actividadNueva.get_dias() << std::endl;
+                        } 
                     }
                 }
             }
@@ -240,14 +334,72 @@ flagAsistencia = true;
         break;
         
         case 2: // Caso en el que guardamos el anuncio solo con los valores obligatorios
-            
+            std::cout << "Se guardaran solo los valores basicos necesarios para la actividad" << std::endl;
         break;
         
         default: // Caso de salir sin guardar
-        
+            std::cout << "Saliendo sin guardar..." << std::endl;
         break;
     }
 
+  
+    if(opt == 1 || opt == 2){ // Para los casos donde no se quiera salir sin guardar
+        // Ahora mostramos el anuncio completo al usuario y decide si quiere guardarlo o no
+
+        // ----- Mostramos la actividad a guardar ----- 
+        std::cout << "Preview de la actividad" << std::endl;
+        std::cout << "-----------------------" << std::endl;
+        std::cout << "Tipo: " << actividadNueva.get_tipo() << std::endl;
+        std::cout << "Director: " << actividadNueva.get_director() << std::endl;
+        std::cout << "Asistencia: " << actividadNueva.get_asistencia() << std::endl;
+
+        if(opt == 1){ // Si se ha decidido completar el anuncio, se muestra el resto
+            
+            std::cout << "Nombre: " << actividadNueva.get_nombre() << std::endl;
+            std::cout << "Descripcion: " << actividadNueva.get_descripcion() << std::endl;
+            std::cout << "Tema: " << actividadNueva.get_tema() << std::endl;
+            std::cout << "Ubicacion: " << actividadNueva.get_ubicacion() << std::endl;
+            std::cout << "Aforo: " << actividadNueva.get_aforo() << std::endl;
+            std::cout << "Precio: " << actividadNueva.get_precio() << std::endl;
+            std::cout << "Ponente/es: " << actividadNueva.get_ponente() << std::endl;
+            // Para mostrar, usamos put_time con los elementos de la fecha, que en este caso son dia mes y año
+            std::cout << "Fecha de inicio: " << std::put_time(&actividadNueva.get_fechaInicio(), "%d/%m/%Y") << std::endl;
+            std::cout << "Fecha de finalizacion: " << std::put_time(&actividadNueva.get_fechaFinal(), "%d/%m/%Y") << std::endl;
+
+            if(actividadNueva.get_tipo() == "Debate") {
+                std::cout << "Tipo de debate: " << actividadNueva.get_tipoDebate() << std::endl;
+
+            } else { // La ponencia no hace falta ponerla, ya mostramos antes los ponentes
+                if(actividadNueva.get_tipo() == "Seminario") {
+                    std::cout << "Duracion: " << actividadNueva.get_duracion() << std::endl;
+                    std::cout << "Tareas: " << actividadNueva.get_tareas() << std::endl;
+                } else {
+                    if(actividadNueva.get_tipo() == "Taller") {
+                        std::cout << "Nivel: " << actividadNueva.get_nivel() << std::endl;
+                        std::cout << "Dias: " << actividadNueva.get_dias() << std::endl;
+                    } 
+                }
+            }
+        }
+        // ---------------   
+
+        // ----- Mostramos la actividad a guardar ----- 
+        std::cout << "Indica si quieres completar la actividad o dejar solo los valores obligatorios ya rellenados" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl;
+        std::cout << "[1] - Guardar anuncio" << std::endl;
+        std::cout << "[2] - Salir sin guardar el anuncio" << std::endl;
+        std::cout << "\n> ";
+        
+        std::cin >> optGuardar;
+
+        if(optGuardar == 1) { // Guardamos el anuncio
+
+        } else {
+            std::cout << " Anuncio no guardado. Saliendo..." << std::endl;
+        }
+
+        // ---------------
+    }
 }
 
 void organizador::verTodasActividades() {
