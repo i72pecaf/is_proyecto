@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <ctime> // Para el manejo de fechas
 
 class actividad {
     
@@ -18,8 +19,8 @@ class actividad {
         int _aforo;
         float _precio;
         std::string _ponente;
-        std::string _fechaInicio;
-        std::string _fechaFinal;
+        std::tm _fechaInicio;
+        std::tm _fechaFinal;
         std::string _tipoDebate;
         std::string _duracion;
         std::string _tareas;
@@ -41,8 +42,8 @@ class actividad {
             _aforo = 0;
             _precio = 0.0;
             _ponente = "";
-            _fechaInicio = "";
-            _fechaFinal = "";
+            _fechaInicio = {};
+            _fechaFinal = {};
             _tipoDebate = "";
             _duracion = "";
             _tareas = "";
@@ -82,11 +83,11 @@ class actividad {
         inline void set_ponente(std::string ponente) { _ponente = ponente; }
         inline std::string get_ponente() { return _ponente; }
 
-        inline void set_fechaInicio(std::string fechaInicio) { _fechaInicio = fechaInicio; }
-        inline std::string get_fechaInicio() { return _fechaInicio; }
+        inline void set_fechaInicio(std::tm fechaInicio) { _fechaInicio = fechaInicio; }
+        inline std::tm get_fechaInicio() { return _fechaInicio; }
 
-        inline void set_fechaFinal(std::string fechaFinal) { _fechaFinal = fechaFinal; }
-        inline std::string get_fechaFinal() { return _fechaFinal; }
+        inline void set_fechaFinal(std::tm fechaFinal) { _fechaFinal = fechaFinal; }
+        inline std::tm get_fechaFinal() { return _fechaFinal; }
 
         inline void set_tipoDebate(std::string tipoDebate) { _tipoDebate = tipoDebate; }
         inline std::string get_tipoDebate() { return _tipoDebate; }

@@ -1,7 +1,12 @@
 #include "organizador.hpp"
 #include "panelActividades.hpp"
 #include "actividad.hpp"
+
 #include <iostream>
+#include <ctime> // Para el manejo de fechas
+#include <iomanip> // Para el manejo de fechas
+#include <limits> // Para limpiar el buffer de entrada
+
 
 organizador::organizador() {
 
@@ -26,10 +31,14 @@ void organizador::crearActividad() {
     std::string ubicacionActividad;
     std::string ponenteActividad;
 
+    // Usamos la libreria ctime de C para el tratamiento de fechas 
+    struct tm fechaInicioActividad, fechaFinActividad;
+
     // Banderas para controlar errores
     bool flagTipo = false; // Por defecto, el tipo introducido no se reconoce
     bool flagDirectores = false; // Por defecto, el tipo introducido no se reconoce
     bool flagAsistencia = false; // Por defecto, no se ha introducido un valor valido
+    bool flagPonente = false; // Por defecto, no se ha introducido un unico ponente
     bool flagFechas = false; // Por defecto, las fechas introducidas no son correctas
 
     // Objetos para manejar los anuncios
@@ -40,6 +49,12 @@ void organizador::crearActividad() {
     std::cout << std::endl;
     std::cout << "Formulario de creacion de una actividad" << std::endl;
     std::cout << "---------------------------------------" << std::endl;
+
+/* BORRAR - SE USA PARA EL DESARROLLO */
+flagTipo = true;
+flagDirectores = true;
+flagAsistencia = true;
+
 
     // ----- Pedimos al usuario el tipo comprobando que sea correcto -----
     while(!flagTipo){
@@ -117,7 +132,7 @@ void organizador::crearActividad() {
 
     switch (opt) {
         case 1: // Caso en el que completamos el anuncio
-            
+/*     DESCOMENTAR TRAS DESARROLLAR !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!       
             // ----- Pedimos al usuario el nombre de la actividad -----
             std::cout << "Introduce el nombre de la actividad: ";
             std::cin >> nombreActividad;
@@ -153,25 +168,75 @@ void organizador::crearActividad() {
             std::cin >> precioActividad;
             actividadNueva.set_precio(precioActividad); // Añadimos el valor al nuevo actividad
             // ---------------
+*/
+            // ----- Pedimos al usuario el ponente de la actividad -----
+/*            while(!flagFechas){
+                std::cout << "Introduce el ponente de la actividad (Si la actividad es una ponencia, mas tarde podras añadir mas): ";
+                std::cin >> ponenteActividad;
 
-            // ----- Pedimos al usuario los ponentes de la actividad -----
-            std::cout << "Introduce informacion sobre el/los ponente/s de la actividad: ";
-            std::cin >> ponenteActividad;
-            actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
+
+
+                actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
             // ---------------
+*/
 
             // ----- Pedimos al usuario los ponentes de la actividad -----
             while(!flagFechas){ // Pedimos las fechas hasta que sean validas
-                std::cout << "Introduce la fecha de inicio y la fecha de fin de la actividad" << std::endl;
-
-
-
                 
-                if(!flagFechas) {
+                std::cout << "Introduce la fecha de inicio de la actividad (day/month/year): ";
+                std::cin >> std::get_time(&fechaInicioActividad, "%d/%m/%Y"); // Usamos get_time para leer la fecha y guardarla en la estructura
+
+                if(!std::cin.fail()) { // Comprobamos que la primera fecha esta correctamente escrita
+                    
+                    std::cout << "Introduce la fecha de fin de la actividad (day/month/year): ";
+                    std::cin >> std::get_time(&fechaFinActividad, "%d/%m/%Y"); // Usamos get_time para leer la fecha y guardarla en la estructura
+
+                    if(!std::cin.fail()) { // Comprobamos que la segunda fecha esta correctamente escrita
+                        // Ahora comprobamos que la fecha de inicio sea anterior que la fecha final
+                        if(std::mktime(&fechaInicioActividad) <= std::mktime(&fechaFinActividad)){ // En caso de que esten bien...
+                            flagFechas = true; // ...entonces lo marcamos como que estan bien las fechas
+                        }
+                    }                
+                }
+
+                if(!flagFechas) { // En el caso de que las fechas no sean correctas, solicitamos de nuevo al usuario
                     std::cout << "ERROR: Las fechas no son correctas, vuelve a intentarlo" << std::endl;
+
+                }
+                // Reseteamos el cin para leer correctamente y borramos el buffer de entrada para no leer restos anteriores
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
+            }
+
+            actividadNueva.set_fechaInicio(fechaInicioActividad); // Añadimos el valor al nuevo actividad   
+            actividadNueva.set_fechaFinal(fechaFinActividad); // Añadimos el valor al nuevo actividad      
+            // ---------------
+
+            // Ahora rellenamos los campos dependiendo del tipo de actividad que sea
+            if(tipoActividad = "Debate") {
+                
+            
+            } else {
+                if(tipoActividad = "Ponencia") {
+                    // ----- Pedimos al usuario los ponentes de la actividad -----
+                    std::cout << "Introduce informacion sobre el/los ponente/s de la actividad: ";
+                    std::cin >> ponenteActividad;
+                    actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
+                    // ---------------
+                
+                } else  {
+                    if(tipoActividad = "Seminario") {
+
+                    
+                    } else {
+                        if(tipoActividad = "Taller") {
+
+                        }
+                    }
                 }
             }
-            // ---------------
+
+
         break;
         
         case 2: // Caso en el que guardamos el anuncio solo con los valores obligatorios
