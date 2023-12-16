@@ -1,4 +1,5 @@
 #include "usuarioVisitante.hpp"
+#include "panelActividades.hpp"
 #include <iostream>
 #include <fstream>
 #include <sstream> // Para facilitar el manejo de cadenas
@@ -49,4 +50,9 @@ void usuarioVisitante::login(std::string &correo, int &rol, bool &flagCorreo) {
 
 void usuarioVisitante::verActividadesPublicadas() {
     /* PARTE DE LA HISTORIA DE USUARIO OBLIGATORIA : MOSTRAR ANUNCIOS PUBLICADOS Y SUS PREINSCRITOS*/
+    
+    // Se muestran solo los anuncios publicados
+    panelActividades panel;
+
+    panel.mostrarActividades(true);
 }

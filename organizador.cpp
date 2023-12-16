@@ -403,7 +403,12 @@ void organizador::crearActividad() {
 }
 
 void organizador::verTodasActividades() {
+    /* PARTE DE LA HISTORIA DE USUARIO OBLIGATORIA : MOSTRAR ANUNCIOS PUBLICADOS Y SUS PREINSCRITOS*/
+    
+    // Se muestran tambien los no publicados
+    panelActividades panel;
 
+    panel.mostrarActividades(false); 
 }
 
 void organizador::buscarActividad() {

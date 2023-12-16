@@ -36,7 +36,7 @@ class panelActividades {
         inline std::vector<std::string> get_listaDirectoresAcademicos() { return _listaDirectoresAcademicos; }
 
         void buscarActividad();
-        void mostrarActividades(); // Historia de usuario : Mostrar actividades
+        void mostrarActividades(bool soloPublicadas); // Historia de usuario : Mostrar actividades
         void introducirActividad(actividad actividadNueva, bool& flagActividadGuardada); // Historia de usuario : Crear actividad
         void borrarActividad();
         void numeroActividades();

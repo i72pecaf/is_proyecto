@@ -19,13 +19,17 @@ int main(){
 
     usuarioVisitante usuario_v;
 
-    /* ====================== Borrar tras desarrollar ======================*/
+    // ====================== Borrar tras desarrollar ======================
+    /*
     organizador org;
     correo = "i72pecaf@uco.es";
     org.crearActividad();
 
     cout << "\n\n\n";
-    /* ===================================================================== */
+    */
+    usuario_v.verActividadesPublicadas();
+    cout << "||||||||||" << endl;
+    //===================================================================== 
 
     // -- Bloque de código
     cout << "\n---------------------------------------------" << endl;
@@ -74,6 +78,7 @@ int main(){
                             
                             case 2: // Ver todas las actividades
                                 org.verTodasActividades();
+                                
                             break;
 
                             case 3: // Salir del programa
@@ -152,7 +157,6 @@ int main(){
         break;
         
         case 2: // Modo visitante
-            cout << "\nSe procede a mostrar las actividades..." << endl;
             usuario_v.verActividadesPublicadas();
         break;
         

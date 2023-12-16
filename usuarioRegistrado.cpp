@@ -1,4 +1,5 @@
 #include "usuarioRegistrado.hpp"
+#include "panelActividades.hpp"
 #include <iostream>
 
 usuarioRegistrado::usuarioRegistrado(std::string nombre) {
@@ -11,6 +12,11 @@ void usuarioRegistrado::preinscripcionActividad() {
 
 void usuarioRegistrado::verActividadesPublicadas() {
     /* PARTE DE LA HISTORIA DE USUARIO OBLIGATORIA : MOSTRAR ANUNCIOS PUBLICADOS Y SUS PREINSCRITOS*/
+    // Se muestran solo los anuncios publicados
+
+    panelActividades panel;
+
+    panel.mostrarActividades(true);
 }
 
 void usuarioRegistrado::verEstadoActividades() {

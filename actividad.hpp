@@ -49,7 +49,7 @@ class actividad {
             _tareas = "";
             _nivel = "";
             _dias = "";
-            _estado = false;
+            _estado = false; // Por defecto la actividad no esta publicada
             _listaEspera = std::vector<std::string>(); // Establecemos el array vacio por defecto, sin nadie en la lista de espera
         }
 
