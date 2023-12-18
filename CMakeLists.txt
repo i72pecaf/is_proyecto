@@ -15,7 +15,7 @@ file(GLOB SOURCES "src/*.cpp")
 file(GLOB HEADERS "src/*.hpp")
 
 # Genera la lista de archivos objeto
-add_executable(programa ${SOURCES} ${HEADERS})
+add_executable(programa.exe ${SOURCES} ${HEADERS})
 
 # Opciones de compilación
-target_compile_options(programa PRIVATE -Wall)
+target_compile_options(programa.exe PRIVATE -Wall)

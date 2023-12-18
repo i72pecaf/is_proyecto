@@ -18,7 +18,7 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
     std::string tipoActividad; // Necesario para diferenciar el tipo de anuncio y mostrar su informacion unica
 
     std::ifstream fin; // Fichero de lectura
-
+    std::cout << this->get_listaActividades() << std::endl;
     fin.open(this->get_listaActividades()); // Abrimos el fichero
     if(!fin.is_open()){ // Manejo de errores, caso donde no se abra bien el fichero
         std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;

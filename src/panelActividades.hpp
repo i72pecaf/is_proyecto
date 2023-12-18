@@ -10,7 +10,7 @@ class panelActividades {
     private:
         /* Atributo relacionado con el fichero con los anuncios. En el manual tecnico, corresponden
            al atributo listaActividades de la clase panelActividades del diagrama de clases*/
-        std::string _listaActividades = "actividades.txt"; // Esto es el nombre del fichero
+        std::string _listaActividades = "../actividades.txt"; // Esto es el nombre del fichero
         // Atributos para las actividades y para los directores academicos existentes
         std::vector<std::string> _listaTiposActividades;
         std::vector<std::string> _listaDirectoresAcademicos;

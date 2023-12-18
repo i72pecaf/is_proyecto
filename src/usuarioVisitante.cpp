@@ -13,7 +13,7 @@ void usuarioVisitante::login(std::string &correo, int &rol, bool &flagCorreo) {
     
     std::string linea, subCadena;
     std::string auxRol;
-    std::string ficheroDatos = "datosUsuariosUCO.txt"; // Fichero con los datos de los usuarios, su rol y correo
+    std::string ficheroDatos = "../datosUsuariosUCO.txt"; // Fichero con los datos de los usuarios, su rol y correo
     
     std::cout << "\nIntroduce tu correo de la UCO: "; 
     std::cin >> correo;
