@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"gmock\" \"gtest\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build/CMakeFiles /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build//CMakeFiles/progress.marks
@@ -129,12 +174,78 @@ programa/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/build
 .PHONY : programa/fast
 
+#=============================================================================
+# Target rules for targets named test_ejecutable
+
+# Build rule for target.
+test_ejecutable: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_ejecutable
+.PHONY : test_ejecutable
+
+# fast build rule for target.
+test_ejecutable/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/build
+.PHONY : test_ejecutable/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f lib/googletest/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f lib/googletest/googletest/CMakeFiles/gtest.dir/build.make lib/googletest/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f lib/googletest/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
 src/director.o: src/director.cpp.o
 .PHONY : src/director.o
 
 # target to build an object file
 src/director.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/director.cpp.o
 .PHONY : src/director.cpp.o
 
 src/director.i: src/director.cpp.i
@@ -143,6 +254,7 @@ src/director.i: src/director.cpp.i
 # target to preprocess a source file
 src/director.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/director.cpp.i
 .PHONY : src/director.cpp.i
 
 src/director.s: src/director.cpp.s
@@ -151,6 +263,7 @@ src/director.s: src/director.cpp.s
 # target to generate assembly for a file
 src/director.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/director.cpp.s
 .PHONY : src/director.cpp.s
 
 src/mail.o: src/mail.cpp.o
@@ -159,6 +272,7 @@ src/mail.o: src/mail.cpp.o
 # target to build an object file
 src/mail.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/mail.cpp.o
 .PHONY : src/mail.cpp.o
 
 src/mail.i: src/mail.cpp.i
@@ -167,6 +281,7 @@ src/mail.i: src/mail.cpp.i
 # target to preprocess a source file
 src/mail.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/mail.cpp.i
 .PHONY : src/mail.cpp.i
 
 src/mail.s: src/mail.cpp.s
@@ -175,6 +290,7 @@ src/mail.s: src/mail.cpp.s
 # target to generate assembly for a file
 src/mail.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/mail.cpp.s
 .PHONY : src/mail.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -207,6 +323,7 @@ src/organizador.o: src/organizador.cpp.o
 # target to build an object file
 src/organizador.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/organizador.cpp.o
 .PHONY : src/organizador.cpp.o
 
 src/organizador.i: src/organizador.cpp.i
@@ -215,6 +332,7 @@ src/organizador.i: src/organizador.cpp.i
 # target to preprocess a source file
 src/organizador.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/organizador.cpp.i
 .PHONY : src/organizador.cpp.i
 
 src/organizador.s: src/organizador.cpp.s
@@ -223,6 +341,7 @@ src/organizador.s: src/organizador.cpp.s
 # target to generate assembly for a file
 src/organizador.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/organizador.cpp.s
 .PHONY : src/organizador.cpp.s
 
 src/panelActividades.o: src/panelActividades.cpp.o
@@ -231,6 +350,7 @@ src/panelActividades.o: src/panelActividades.cpp.o
 # target to build an object file
 src/panelActividades.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/panelActividades.cpp.o
 .PHONY : src/panelActividades.cpp.o
 
 src/panelActividades.i: src/panelActividades.cpp.i
@@ -239,6 +359,7 @@ src/panelActividades.i: src/panelActividades.cpp.i
 # target to preprocess a source file
 src/panelActividades.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/panelActividades.cpp.i
 .PHONY : src/panelActividades.cpp.i
 
 src/panelActividades.s: src/panelActividades.cpp.s
@@ -247,6 +368,7 @@ src/panelActividades.s: src/panelActividades.cpp.s
 # target to generate assembly for a file
 src/panelActividades.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/panelActividades.cpp.s
 .PHONY : src/panelActividades.cpp.s
 
 src/usuarioRegistrado.o: src/usuarioRegistrado.cpp.o
@@ -255,6 +377,7 @@ src/usuarioRegistrado.o: src/usuarioRegistrado.cpp.o
 # target to build an object file
 src/usuarioRegistrado.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioRegistrado.cpp.o
 .PHONY : src/usuarioRegistrado.cpp.o
 
 src/usuarioRegistrado.i: src/usuarioRegistrado.cpp.i
@@ -263,6 +386,7 @@ src/usuarioRegistrado.i: src/usuarioRegistrado.cpp.i
 # target to preprocess a source file
 src/usuarioRegistrado.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioRegistrado.cpp.i
 .PHONY : src/usuarioRegistrado.cpp.i
 
 src/usuarioRegistrado.s: src/usuarioRegistrado.cpp.s
@@ -271,6 +395,7 @@ src/usuarioRegistrado.s: src/usuarioRegistrado.cpp.s
 # target to generate assembly for a file
 src/usuarioRegistrado.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioRegistrado.cpp.s
 .PHONY : src/usuarioRegistrado.cpp.s
 
 src/usuarioVisitante.o: src/usuarioVisitante.cpp.o
@@ -279,6 +404,7 @@ src/usuarioVisitante.o: src/usuarioVisitante.cpp.o
 # target to build an object file
 src/usuarioVisitante.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioVisitante.cpp.o
 .PHONY : src/usuarioVisitante.cpp.o
 
 src/usuarioVisitante.i: src/usuarioVisitante.cpp.i
@@ -287,6 +413,7 @@ src/usuarioVisitante.i: src/usuarioVisitante.cpp.i
 # target to preprocess a source file
 src/usuarioVisitante.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioVisitante.cpp.i
 .PHONY : src/usuarioVisitante.cpp.i
 
 src/usuarioVisitante.s: src/usuarioVisitante.cpp.s
@@ -295,7 +422,80 @@ src/usuarioVisitante.s: src/usuarioVisitante.cpp.s
 # target to generate assembly for a file
 src/usuarioVisitante.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioVisitante.cpp.s
 .PHONY : src/usuarioVisitante.cpp.s
+
+tests/test_historia_1.o: tests/test_historia_1.cpp.o
+.PHONY : tests/test_historia_1.o
+
+# target to build an object file
+tests/test_historia_1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_1.cpp.o
+.PHONY : tests/test_historia_1.cpp.o
+
+tests/test_historia_1.i: tests/test_historia_1.cpp.i
+.PHONY : tests/test_historia_1.i
+
+# target to preprocess a source file
+tests/test_historia_1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_1.cpp.i
+.PHONY : tests/test_historia_1.cpp.i
+
+tests/test_historia_1.s: tests/test_historia_1.cpp.s
+.PHONY : tests/test_historia_1.s
+
+# target to generate assembly for a file
+tests/test_historia_1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_1.cpp.s
+.PHONY : tests/test_historia_1.cpp.s
+
+tests/test_historia_2.o: tests/test_historia_2.cpp.o
+.PHONY : tests/test_historia_2.o
+
+# target to build an object file
+tests/test_historia_2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_2.cpp.o
+.PHONY : tests/test_historia_2.cpp.o
+
+tests/test_historia_2.i: tests/test_historia_2.cpp.i
+.PHONY : tests/test_historia_2.i
+
+# target to preprocess a source file
+tests/test_historia_2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_2.cpp.i
+.PHONY : tests/test_historia_2.cpp.i
+
+tests/test_historia_2.s: tests/test_historia_2.cpp.s
+.PHONY : tests/test_historia_2.s
+
+# target to generate assembly for a file
+tests/test_historia_2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_2.cpp.s
+.PHONY : tests/test_historia_2.cpp.s
+
+tests/test_historia_3.o: tests/test_historia_3.cpp.o
+.PHONY : tests/test_historia_3.o
+
+# target to build an object file
+tests/test_historia_3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o
+.PHONY : tests/test_historia_3.cpp.o
+
+tests/test_historia_3.i: tests/test_historia_3.cpp.i
+.PHONY : tests/test_historia_3.i
+
+# target to preprocess a source file
+tests/test_historia_3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.i
+.PHONY : tests/test_historia_3.cpp.i
+
+tests/test_historia_3.s: tests/test_historia_3.cpp.s
+.PHONY : tests/test_historia_3.s
+
+# target to generate assembly for a file
+tests/test_historia_3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.s
+.PHONY : tests/test_historia_3.cpp.s
 
 # Help Target
 help:
@@ -304,8 +504,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... programa"
+	@echo "... test_ejecutable"
 	@echo "... src/director.o"
 	@echo "... src/director.i"
 	@echo "... src/director.s"
@@ -327,6 +536,15 @@ help:
 	@echo "... src/usuarioVisitante.o"
 	@echo "... src/usuarioVisitante.i"
 	@echo "... src/usuarioVisitante.s"
+	@echo "... tests/test_historia_1.o"
+	@echo "... tests/test_historia_1.i"
+	@echo "... tests/test_historia_1.s"
+	@echo "... tests/test_historia_2.o"
+	@echo "... tests/test_historia_2.i"
+	@echo "... tests/test_historia_2.s"
+	@echo "... tests/test_historia_3.o"
+	@echo "... tests/test_historia_3.i"
+	@echo "... tests/test_historia_3.s"
 .PHONY : help
 
 

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/mnt/c/Users/Fran/Documents/GitHub/is_proyecto/lib/googletest/include
 
 CXX_FLAGS = -Wall -std=gnu++11
 
