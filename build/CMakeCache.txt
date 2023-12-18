@@ -210,15 +210,6 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-TuProyecto_BINARY_DIR:STATIC=/mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build
-
-//Value Computed by CMake
-TuProyecto_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-TuProyecto_SOURCE_DIR:STATIC=/mnt/c/Users/Fran/Documents/GitHub/is_proyecto
-
-//Value Computed by CMake
 is_proyecto_BINARY_DIR:STATIC=/mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build
 
 //Value Computed by CMake

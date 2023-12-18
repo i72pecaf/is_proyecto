@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named programa.exe
+# Target rules for targets named programa
 
 # Build rule for target.
-programa.exe: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 programa.exe
-.PHONY : programa.exe
+programa: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 programa
+.PHONY : programa
 
 # fast build rule for target.
-programa.exe/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/build
-.PHONY : programa.exe/fast
+programa/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/build
+.PHONY : programa/fast
 
 src/director.o: src/director.cpp.o
 .PHONY : src/director.o
 
 # target to build an object file
 src/director.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/director.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.o
 .PHONY : src/director.cpp.o
 
 src/director.i: src/director.cpp.i
@@ -142,7 +142,7 @@ src/director.i: src/director.cpp.i
 
 # target to preprocess a source file
 src/director.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/director.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.i
 .PHONY : src/director.cpp.i
 
 src/director.s: src/director.cpp.s
@@ -150,7 +150,7 @@ src/director.s: src/director.cpp.s
 
 # target to generate assembly for a file
 src/director.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/director.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.s
 .PHONY : src/director.cpp.s
 
 src/mail.o: src/mail.cpp.o
@@ -158,7 +158,7 @@ src/mail.o: src/mail.cpp.o
 
 # target to build an object file
 src/mail.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/mail.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.o
 .PHONY : src/mail.cpp.o
 
 src/mail.i: src/mail.cpp.i
@@ -166,7 +166,7 @@ src/mail.i: src/mail.cpp.i
 
 # target to preprocess a source file
 src/mail.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/mail.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.i
 .PHONY : src/mail.cpp.i
 
 src/mail.s: src/mail.cpp.s
@@ -174,7 +174,7 @@ src/mail.s: src/mail.cpp.s
 
 # target to generate assembly for a file
 src/mail.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/mail.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.s
 .PHONY : src/mail.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -182,7 +182,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -190,7 +190,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -198,7 +198,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/organizador.o: src/organizador.cpp.o
@@ -206,7 +206,7 @@ src/organizador.o: src/organizador.cpp.o
 
 # target to build an object file
 src/organizador.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/organizador.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.o
 .PHONY : src/organizador.cpp.o
 
 src/organizador.i: src/organizador.cpp.i
@@ -214,7 +214,7 @@ src/organizador.i: src/organizador.cpp.i
 
 # target to preprocess a source file
 src/organizador.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/organizador.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.i
 .PHONY : src/organizador.cpp.i
 
 src/organizador.s: src/organizador.cpp.s
@@ -222,7 +222,7 @@ src/organizador.s: src/organizador.cpp.s
 
 # target to generate assembly for a file
 src/organizador.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/organizador.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.s
 .PHONY : src/organizador.cpp.s
 
 src/panelActividades.o: src/panelActividades.cpp.o
@@ -230,7 +230,7 @@ src/panelActividades.o: src/panelActividades.cpp.o
 
 # target to build an object file
 src/panelActividades.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/panelActividades.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.o
 .PHONY : src/panelActividades.cpp.o
 
 src/panelActividades.i: src/panelActividades.cpp.i
@@ -238,7 +238,7 @@ src/panelActividades.i: src/panelActividades.cpp.i
 
 # target to preprocess a source file
 src/panelActividades.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/panelActividades.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.i
 .PHONY : src/panelActividades.cpp.i
 
 src/panelActividades.s: src/panelActividades.cpp.s
@@ -246,7 +246,7 @@ src/panelActividades.s: src/panelActividades.cpp.s
 
 # target to generate assembly for a file
 src/panelActividades.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/panelActividades.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.s
 .PHONY : src/panelActividades.cpp.s
 
 src/usuarioRegistrado.o: src/usuarioRegistrado.cpp.o
@@ -254,7 +254,7 @@ src/usuarioRegistrado.o: src/usuarioRegistrado.cpp.o
 
 # target to build an object file
 src/usuarioRegistrado.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioRegistrado.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.o
 .PHONY : src/usuarioRegistrado.cpp.o
 
 src/usuarioRegistrado.i: src/usuarioRegistrado.cpp.i
@@ -262,7 +262,7 @@ src/usuarioRegistrado.i: src/usuarioRegistrado.cpp.i
 
 # target to preprocess a source file
 src/usuarioRegistrado.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioRegistrado.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.i
 .PHONY : src/usuarioRegistrado.cpp.i
 
 src/usuarioRegistrado.s: src/usuarioRegistrado.cpp.s
@@ -270,7 +270,7 @@ src/usuarioRegistrado.s: src/usuarioRegistrado.cpp.s
 
 # target to generate assembly for a file
 src/usuarioRegistrado.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioRegistrado.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.s
 .PHONY : src/usuarioRegistrado.cpp.s
 
 src/usuarioVisitante.o: src/usuarioVisitante.cpp.o
@@ -278,7 +278,7 @@ src/usuarioVisitante.o: src/usuarioVisitante.cpp.o
 
 # target to build an object file
 src/usuarioVisitante.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.o
 .PHONY : src/usuarioVisitante.cpp.o
 
 src/usuarioVisitante.i: src/usuarioVisitante.cpp.i
@@ -286,7 +286,7 @@ src/usuarioVisitante.i: src/usuarioVisitante.cpp.i
 
 # target to preprocess a source file
 src/usuarioVisitante.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.i
 .PHONY : src/usuarioVisitante.cpp.i
 
 src/usuarioVisitante.s: src/usuarioVisitante.cpp.s
@@ -294,7 +294,7 @@ src/usuarioVisitante.s: src/usuarioVisitante.cpp.s
 
 # target to generate assembly for a file
 src/usuarioVisitante.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.s
 .PHONY : src/usuarioVisitante.cpp.s
 
 # Help Target
@@ -305,7 +305,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... programa.exe"
+	@echo "... programa"
 	@echo "... src/director.o"
 	@echo "... src/director.i"
 	@echo "... src/director.s"
