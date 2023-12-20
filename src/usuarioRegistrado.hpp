@@ -9,8 +9,12 @@ class usuarioRegistrado {
         std::string _nombreUsuario;
 
     public:
+    
         usuarioRegistrado(std::string nombre);
-        void preinscripcionActividad();
+        
+        inline std::string get_nombreUsuario() { return _nombreUsuario; }
+        
+        void preinscripcionActividad(int idActividad);
         void verActividadesPublicadas();
         void verEstadoActividades();
 

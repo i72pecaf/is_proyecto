@@ -965,7 +965,13 @@ CMakeFiles/programa.dir/src/panelActividades.cpp.o: ../src/panelActividades.cpp 
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/sstream \
-  /usr/include/c++/11/bits/sstream.tcc
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h
 
 CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.o: ../src/usuarioRegistrado.cpp \
   /usr/include/stdc-predef.h \
@@ -1351,6 +1357,12 @@ CMakeFiles/programa.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.cpp 
 
 ../src/usuarioRegistrado.cpp:
 
+/usr/include/c++/11/bits/stl_heap.h:
+
+/usr/include/c++/11/bits/algorithmfwd.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
+
 /usr/include/c++/11/sstream:
 
 /usr/include/c++/11/bits/fstream.tcc:
@@ -1513,6 +1525,8 @@ CMakeFiles/programa.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.cpp 
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
+/usr/include/c++/11/bits/stl_tempbuf.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
@@ -1655,6 +1669,8 @@ CMakeFiles/programa.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.cpp 
 
 /usr/include/c++/11/string:
 
+/usr/include/c++/11/bits/uniform_int_dist.h:
+
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
 /usr/include/wchar.h:
@@ -1764,6 +1780,8 @@ CMakeFiles/programa.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.cpp 
 /usr/include/c++/11/bits/locale_classes.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
+
+/usr/include/c++/11/algorithm:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 

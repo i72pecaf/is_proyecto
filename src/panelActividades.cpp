@@ -4,6 +4,8 @@
 #include <ctime>
 #include <iomanip>
 #include <sstream>
+#include <vector>
+#include <algorithm>  // Necesario para std::min
 
 void panelActividades::buscarActividad() {
     
@@ -26,7 +28,6 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
         // Procedemos a leer el fichero y mostrar las actividades
         while (getline(fin, lineaActividad)) { // Vamos linea por linea, cada linea un anuncio
             std::istringstream streamActividad(lineaActividad); // Objeto para entrada de datos, facilita el manejo de strings
-            //std::getline(streamActividad, cadenaAux, ';'
 
             std::getline(streamActividad, cadIdActividad, ';'); // El primer elemento es el id de la actividad
             std::getline(streamActividad, cadEstado, ';'); // El segundo elemento es el estado de la actividad (publicada o no)
@@ -45,27 +46,27 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
                     std::cout << "Tipo de la actividad: " << tipoActividad << std::endl;
                     
                     std::getline(streamActividad, cadenaAux, ';'); // El siguiente elemento, que corresponde con el nombre
-                    std::cout << "Director: " << cadIdActividad << std::endl;
+                    std::cout << "Director: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Nombre: " << cadIdActividad << std::endl;
+                    std::cout << "Nombre: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Descripcion: " << cadIdActividad << std::endl;
+                    std::cout << "Descripcion: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Asistencia: " << cadIdActividad << std::endl;
+                    std::cout << "Asistencia: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Tema: " << cadIdActividad << std::endl;
+                    std::cout << "Tema: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Ubicacion: " << cadIdActividad << std::endl;
+                    std::cout << "Ubicacion: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Aforo: " << cadIdActividad << std::endl;
+                    std::cout << "Aforo: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Precio: " << cadIdActividad << std::endl;
+                    std::cout << "Precio: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Ponente: " << cadIdActividad << std::endl;
+                    std::cout << "Ponente: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Fecha de inicio: " << cadIdActividad << std::endl;
+                    std::cout << "Fecha de inicio: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Fecha de fin: " << cadIdActividad << std::endl;
+                    std::cout << "Fecha de fin: " << cadenaAux << std::endl;
                     if(tipoActividad == "Debate"){
                         // Muestro los datos que me interesan
                         std::getline(streamActividad, cadenaAux, ';'); // Si debate leo solo una vez
@@ -81,9 +82,9 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
                             std::getline(streamActividad, cadenaAux, ';');
                             // Mostramos los datos que nos interesan
                             std::getline(streamActividad, cadenaAux, ';'); // Este es la duracion
-                            std::cout << "Duracion: " << cadIdActividad << std::endl;
+                            std::cout << "Duracion: " << cadenaAux << std::endl;
                             std::getline(streamActividad, cadenaAux, ';');
-                            std::cout << "Tareas: " << cadIdActividad << std::endl;
+                            std::cout << "Tareas: " << cadenaAux << std::endl;
                             // Y saltamos los demas hasta las listas
                             std::getline(streamActividad, cadenaAux, ';');
                             std::getline(streamActividad, cadenaAux, ';'); // El siguiente leido seran las listas
@@ -95,20 +96,20 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
                             std::getline(streamActividad, cadenaAux, ';');
                             // Mostramos los datos que nos interesan
                             std::getline(streamActividad, cadenaAux, ';');
-                            std::cout << "Nivel: " << cadIdActividad << std::endl;
+                            std::cout << "Nivel: " << cadenaAux << std::endl;
                             std::getline(streamActividad, cadenaAux, ';');
-                            std::cout << "Dias: " << cadIdActividad << std::endl;
+                            std::cout << "Dias: " << cadenaAux << std::endl;
                             // El siguiente dato a leer sera la primera de la listas
                             }
                         }
                     }
                     // Mostramos las listas
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Lista de inscritos: " << cadIdActividad << std::endl;
+                    std::cout << "Lista de inscritos: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Lista de preeinscritos: " << cadIdActividad << std::endl;
+                    std::cout << "Lista de preeinscritos: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
-                    std::cout << "Lista de espera: " << cadIdActividad << std::endl;
+                    std::cout << "Lista de espera: " << cadenaAux << std::endl;
 
                     std::cout << std::endl; // Fin de la actividad mostrada
                 }
@@ -125,32 +126,32 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
                 std::cout << "Tipo de la actividad: " << tipoActividad << std::endl;
                 
                 std::getline(streamActividad, cadenaAux, ';'); // El siguiente elemento, que corresponde con el nombre
-                std::cout << "Director: " << cadIdActividad << std::endl;
+                std::cout << "Director: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Nombre: " << cadIdActividad << std::endl;
+                std::cout << "Nombre: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Descripcion: " << cadIdActividad << std::endl;
+                std::cout << "Descripcion: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Asistencia: " << cadIdActividad << std::endl;
+                std::cout << "Asistencia: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Tema: " << cadIdActividad << std::endl;
+                std::cout << "Tema: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Ubicacion: " << cadIdActividad << std::endl;
+                std::cout << "Ubicacion: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Aforo: " << cadIdActividad << std::endl;
+                std::cout << "Aforo: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Precio: " << cadIdActividad << std::endl;
+                std::cout << "Precio: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Ponente: " << cadIdActividad << std::endl;
+                std::cout << "Ponente: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Fecha de inicio: " << cadIdActividad << std::endl;
+                std::cout << "Fecha de inicio: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Fecha de fin: " << cadIdActividad << std::endl;
+                std::cout << "Fecha de fin: " << cadenaAux << std::endl;
 
                 if(tipoActividad == "Debate"){
                     // Muestro los datos que me interesan
                     std::getline(streamActividad, cadenaAux, ';'); // Si debate leo solo una vez
-                    std::cout << "Tipo del debate: " << cadIdActividad << std::endl;
+                    std::cout << "Tipo del debate: " << cadenaAux << std::endl;
                     // Y salto los demas hasta las listas
                     std::getline(streamActividad, cadenaAux, ';');
                     std::getline(streamActividad, cadenaAux, ';');
@@ -162,9 +163,9 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
                         std::getline(streamActividad, cadenaAux, ';');
                         // Mostramos los datos que nos interesan
                         std::getline(streamActividad, cadenaAux, ';'); // Este es la duracion
-                        std::cout << "Duracion: " << cadIdActividad << std::endl;
+                        std::cout << "Duracion: " << cadenaAux << std::endl;
                         std::getline(streamActividad, cadenaAux, ';');
-                        std::cout << "Tareas: " << cadIdActividad << std::endl;
+                        std::cout << "Tareas: " << cadenaAux << std::endl;
                         // Y saltamos los demas hasta las listas
                         std::getline(streamActividad, cadenaAux, ';');
                         std::getline(streamActividad, cadenaAux, ';'); // El siguiente leido seran las listas
@@ -176,20 +177,20 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
                         std::getline(streamActividad, cadenaAux, ';');
                         // Mostramos los datos que nos interesan
                         std::getline(streamActividad, cadenaAux, ';');
-                        std::cout << "Nivel: " << cadIdActividad << std::endl;
+                        std::cout << "Nivel: " << cadenaAux << std::endl;
                         std::getline(streamActividad, cadenaAux, ';');
-                        std::cout << "Dias: " << cadIdActividad << std::endl;
+                        std::cout << "Dias: " << cadenaAux << std::endl;
                         // El siguiente dato a leer sera la primera de la listas
                         }
                     }
                 }
                 // Mostramos las listas
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Lista de inscritos: " << cadIdActividad << std::endl;
+                std::cout << "Lista de inscritos: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Lista de preeinscritos: " << cadIdActividad << std::endl;
+                std::cout << "Lista de preeinscritos: " << cadenaAux << std::endl;
                 std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Lista de espera: " << cadIdActividad << std::endl;
+                std::cout << "Lista de espera: " << cadenaAux << std::endl;
                 std::cout << std::endl; // Fin de la actividad mostrada
             }
         }
@@ -244,10 +245,12 @@ void panelActividades::introducirActividad(actividad actividadNueva, bool& flagA
                        + actividadNueva.get_tareas() + ";"
                        + actividadNueva.get_nivel() + ";"
                        + actividadNueva.get_dias() + ";"
-                       //Añadir los inscritos
-                       //Añadir los preeinscritos
-                       //Añadir los que estan en lista de espera
-                       ;  
+                       //Inscritos
+                       + "" + ";"
+                       //Preinscritos
+                       + "" + ";"
+                       //Lista de espera
+                       + "" + ";" ;  
 
         // Añadimos la cadena al final del fichero y ponemos un salto de linea
         fout << lineaActividad << std::endl;    
@@ -266,12 +269,249 @@ void panelActividades::numeroActividades() {
     
 }
 
-void panelActividades::preinscribirUsuario() {
+void panelActividades::preinscribirUsuario(int idActividad, std::string nombreUsuario) {
     
+    int aforoActividad = 0;
+    int numPreinscritos = 0;
+    int numLinea = 0; // Linea del fichero donde esta nuestra actividad
+    int lineaActual = 0;
+    
+    std::string lineaActividad;
+    std::string cadIdActividad;
+    std::string cadAux;
+    std::string cadlistaPreinscritos;
+    std::string cadlistaEspera;
+    std::string lineaActividadNueva;
+
+    bool flagEncontrado = false; // Por defecto no se encuentra la actividad
+    
+    std::ifstream fin; // Fichero de lectura
+    
+    std::cout << this->get_listaActividades() << std::endl;
+    fin.open(this->get_listaActividades()); // Abrimos el fichero
+    if(!fin.is_open()){ // Manejo de errores, caso donde no se abra bien el fichero
+        std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
+    } else {
+        // Procedemos a leer el fichero y mostrar las actividades
+        while (getline(fin, lineaActividad)) {
+            std::istringstream streamActividad(lineaActividad); // Objeto para entrada de datos, facilita el manejo de strings
+
+            std::getline(streamActividad, cadIdActividad, ';'); // El primer elemento es el id de la actividad
+            std::cout<<"Entro con: "<< cadIdActividad << " y " << idActividad <<std::endl;
+            if(std::stoi(cadIdActividad) == idActividad) { // Si encontramos la actividad que quiere el usuario continuamos
+
+                for(int i=0; i<9 ; i++){ // Hasta 9 dado que es la posicion del aforo
+                    std::getline(streamActividad, cadAux, ';');
+                } 
+                // El ultimo campo leido es el aforo
+                aforoActividad = std::stoi(cadAux);
+
+                for(int i=0; i<11 ; i++){ // Despues de leer 9 veces, el 10º es la lista de preinscritos
+                    std::getline(streamActividad, cadAux, ';');
+                } 
+
+                cadlistaPreinscritos = cadAux;
+
+                // La siguiente sera la lista de espera
+                std::getline(streamActividad, cadAux, ';');
+
+                cadlistaEspera = cadAux;
+
+                flagEncontrado = true;
+                break;
+            } 
+        }
+    }
+
+    fin.close();
+
+    if(flagEncontrado){
+        std::cout<< " La actividad " << idActividad << " tiene de aforo: " << aforoActividad << " y su lista es: " << cadlistaPreinscritos << std::endl;
+        // Para saber cuantos hay en la lista cuento las comas
+        for (char c : cadlistaPreinscritos) {
+            if (c == ',') {
+                numPreinscritos++;
+            }
+        }
+        numPreinscritos++; // Dado que hay que sumar uno de mas, ya que las comas son el numero de personas - 1
+
+        if(numPreinscritos+1 <= aforoActividad){ // Si hay espacio en la lista de espera se añade al usuario
+
+            cadlistaPreinscritos = cadlistaPreinscritos + ", " + nombreUsuario;
+
+            // Ahora procedemos a añadir al usuario, dado que hay espacio para el
+            fin.open(this->get_listaActividades()); // Abrimos el fichero
+            if (!fin.is_open()) {
+                std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
+            } else {
+                // Procedemos a leer el fichero y mostrar las actividades
+                while (getline(fin, lineaActividad)) {
+                    std::istringstream streamActividad(lineaActividad);
+                    
+                    std::getline(streamActividad, cadIdActividad, ';'); // El primer elemento es el id de la actividad
+                    
+                    if(std::stoi(cadIdActividad) == idActividad) { // Si encontramos la actividad que quiere el usuario continuamos
+                        lineaActividadNueva = cadIdActividad + ';'; // En la linea nueva metemos el id
+                        for(int j = 0 ; j<=18 ; j++) { // El siguiente sera la lista de preinscritos que nosotros tenemos
+                            // Leemos cada campo y lo guardamos
+                            std::getline(streamActividad, cadAux, ';');
+                            lineaActividadNueva = lineaActividadNueva + cadAux +';';
+                        }
+
+                        // Metemos la lista de preinscritos con el usuario inscrito
+                        std::cout << "La linea hasta ahora:\n" << lineaActividadNueva << std::endl;
+                        lineaActividadNueva = lineaActividadNueva + cadlistaPreinscritos +';';
+
+                        // Y solo nos queda la lista de espera, saltandonos la lista de preinscritos existente
+                        std::getline(streamActividad, cadAux, ';');
+                        std::getline(streamActividad, cadAux, ';');
+                        lineaActividadNueva = lineaActividadNueva + cadAux +';';
+
+                        std::cout << "La linea a meter es:\n" << lineaActividadNueva << std::endl;
+
+                        break;
+                    }
+                    numLinea++;
+
+                }
+            }
+            fin.close();
+  
+        // Abre el fichero nuevamente, esta vez para lectura y escritura
+        std::fstream file(this->get_listaActividades());
+
+        if (!file.is_open()) {
+            std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
+        } else {
+            // Crear un fichero temporal para almacenar las líneas actualizadas
+            std::ofstream tempFile("tempfile.txt");
+
+            while (getline(file, lineaActividad)) {
+                if (lineaActual == numLinea) {
+                    // Si estamos en la línea a modificar, ponemos la nueva
+                    tempFile << lineaActividadNueva;
+                } else {
+                    // Si no estamos en la linea a modificar, ponemos las otras lineas
+                    tempFile << lineaActividad;
+                }
+
+                // Para no meter un espacio vacio en una linea nueva al final del fichero
+                if (lineaActual < numLinea - 1 || !file.eof()) {
+                    tempFile << std::endl;
+                }
+
+                lineaActual++;
+            }
+
+            // Cerramos los ficheros
+            file.close();
+            tempFile.close();
+
+            // Eliminamos el fichero original
+            std::remove(this->get_listaActividades().c_str());
+
+            // Renombramos el fichero temporal al nombre original
+            std::rename("tempfile.txt", this->get_listaActividades().c_str());
+        }
+
+        } else {
+            std::cout << "No hay espacio en la lista de preinscritos, se te añadira a la lista de espera" << std::endl;
+            // Ahora procedemos a añadir al usuario en la lista de espera
+            this->inscribirListaEspera(idActividad, nombreUsuario, cadlistaEspera);
+        }
+    } else {
+        std::cout << "ERROR: No se ha encontrado una actividad con ese Id" << std::endl;
+    }
+
 }
- // Historia de usuario : Preeinscripcion en una actividad
-void panelActividades::inscribirListaEspera() {
+
+// Historia de usuario : Preeinscripcion en una actividad
+void panelActividades::inscribirListaEspera(int idActividad, std::string nombreUsuario, std::string cadlistaEspera) {
+
+    int numLinea = 0; // Linea del fichero donde esta nuestra actividad
+    int lineaActual = 0;
+
+    std::string lineaActividad;
+    std::string cadIdActividad;
+    std::string cadAux;
+    std::string lineaActividadNueva;
     
+    std::ifstream fin; // Fichero de lectura
+
+    if(cadlistaEspera == ""){
+        cadlistaEspera = nombreUsuario;
+    } else {
+        cadlistaEspera = cadlistaEspera + ", " + nombreUsuario;
+    }
+
+    // Ahora procedemos a añadir al usuario, dado que hay espacio para el
+    fin.open(this->get_listaActividades()); // Abrimos el fichero
+    if (!fin.is_open()) {
+        std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
+    } else {
+        // Procedemos a leer el fichero y mostrar las actividades
+        while (getline(fin, lineaActividad)) {
+            std::istringstream streamActividad(lineaActividad);
+            
+            std::getline(streamActividad, cadIdActividad, ';'); // El primer elemento es el id de la actividad
+            
+            if(std::stoi(cadIdActividad) == idActividad) { // Si encontramos la actividad que quiere el usuario continuamos
+                lineaActividadNueva = cadIdActividad + ';'; // En la linea nueva metemos el id
+                for(int j = 0 ; j<=19 ; j++) { // El siguiente sera la lista de preinscritos que nosotros tenemos
+                    // Leemos cada campo y lo guardamos
+                    std::getline(streamActividad, cadAux, ';');
+                    lineaActividadNueva = lineaActividadNueva + cadAux +';';
+                }
+
+                // Metemos la lista de preinscritos con el usuario inscrito
+                std::cout << "La linea hasta ahora:\n" << lineaActividadNueva << std::endl;
+                lineaActividadNueva = lineaActividadNueva + cadlistaEspera +';';
+                std::cout << "La linea a meter es:\n" << lineaActividadNueva << std::endl;
+
+                break;
+            }
+            numLinea++;
+
+        }
+    }
+    fin.close();
+
+    // Ahora sobreescribimos el fichero con la informacion nueva
+    std::fstream file(this->get_listaActividades());
+
+    if (!file.is_open()) {
+        std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
+    } else {
+        // Crear un fichero temporal para almacenar las líneas actualizadas
+        std::ofstream tempFile("tempfile.txt");
+
+        while (getline(file, lineaActividad)) {
+            if (lineaActual == numLinea) {
+                // Si estamos en la línea a modificar, ponemos la nueva
+                tempFile << lineaActividadNueva;
+            } else {
+                // Si no estamos en la linea a modificar, ponemos las otras lineas
+                tempFile << lineaActividad;
+            }
+
+            // Para no meter un espacio vacio en una linea nueva al final del fichero
+            if (lineaActual < numLinea - 1 || !file.eof()) {
+                tempFile << std::endl;
+            }
+
+            lineaActual++;
+        }
+
+        // Cerramos los ficheros
+        file.close();
+        tempFile.close();
+
+        // Eliminamos el fichero original
+        std::remove(this->get_listaActividades().c_str());
+
+        // Renombramos el fichero temporal al nombre original
+        std::rename("tempfile.txt", this->get_listaActividades().c_str());
+    }
 }
 
 std::string panelActividades::tiposActividades() {

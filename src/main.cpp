@@ -12,6 +12,7 @@ int main(){
     // -- Bloque de declaración de variables usadas
     int opt, optRol; // Variables para los switches
     int rol = 0 ; // 0: visitante, 1: organizador (admin), 2: director academico, 3: usuario registrado
+    int idActividad; // Id de la actividad a la cual se quiere inscribir el usuario
 
     string correo;
     bool flagCorreo = false; // Para saber si se ha encontrado el correo o no.
@@ -20,15 +21,15 @@ int main(){
     usuarioVisitante usuario_v;
 
     // ====================== Borrar tras desarrollar ======================
-    /*
-    organizador org;
-    correo = "i72pecaf@uco.es";
-    org.crearActividad();
 
+    correo = "a55luhom@uco.es";
+    usuarioRegistrado usuario_r(correo);
+    usuario_r.preinscripcionActividad(1234);
+
+/*
     cout << "\n\n\n";
-    */
     usuario_v.verActividadesPublicadas();
-    cout << "||||||||||" << endl;
+    cout << "||||||||||" << endl;*/
     //===================================================================== 
 
     // -- Bloque de código
@@ -120,7 +121,7 @@ int main(){
                         cout << "Hola usuario " << correo << ". Indica qué quieres hacer" << endl;
                         cout << "---------------------------------------------" << endl;
                         cout << "[1] - Ver actividades publicadas" << endl;
-                        cout << "[2] - Preeinscribirse en un anuncio (Necesitas su código)" << endl;
+                        cout << "[2] - Preeinscribirse en una actividad (Necesitas su código)" << endl;
                         cout << "[3] - Cerrar el programa" << endl;
                         cout << "\n> ";
 
@@ -131,8 +132,10 @@ int main(){
                                 usuario_r.verActividadesPublicadas();
                             break;
                             
-                            case 2: // Preeinscripción en un anuncio
-                                usuario_r.preinscripcionActividad();
+                            case 2: // Preeinscripción en una actividad
+                                cout << "Introduce el codigo de la actividad a inscribirte: ";
+                                cin >> idActividad;
+                                usuario_r.preinscripcionActividad(idActividad);
                             break;
 
                             case 3: // Salir del programa

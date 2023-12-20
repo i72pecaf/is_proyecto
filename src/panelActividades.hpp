@@ -40,8 +40,8 @@ class panelActividades {
         void introducirActividad(actividad actividadNueva, bool& flagActividadGuardada); // Historia de usuario : Crear actividad
         void borrarActividad();
         void numeroActividades();
-        void preinscribirUsuario(); // Historia de usuario : Preeinscripcion en una actividad
-        void inscribirListaEspera();
+        void preinscribirUsuario(int idActividad, std::string nombreUsuario); // Historia de usuario : Preeinscripcion en una actividad
+        void inscribirListaEspera(int idActividad, std::string nombreUsuario, std::string cadlistaEspera);
         std::string tiposActividades(); // Historia de usuario : Crear actividad - Necesario para su funcionamiento
         void introducirDirectores();
         void borrarDirectores();

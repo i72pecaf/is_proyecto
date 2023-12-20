@@ -780,7 +780,13 @@ CMakeFiles/test_ejecutable.dir/src/panelActividades.cpp.o: ../src/panelActividad
   /usr/include/c++/11/bits/invoke.h \
   /usr/include/c++/11/bits/quoted_string.h \
   /usr/include/c++/11/sstream \
-  /usr/include/c++/11/bits/sstream.tcc
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h
 
 CMakeFiles/test_ejecutable.dir/src/usuarioRegistrado.cpp.o: ../src/usuarioRegistrado.cpp \
   /usr/include/stdc-predef.h \
@@ -2223,7 +2229,11 @@ CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o: ../tests/test_histor
 
 /usr/include/linux/posix_types.h:
 
-/usr/include/asm-generic/int-ll64.h:
+/usr/include/x86_64-linux-gnu/asm/types.h:
+
+../lib/googletest/googletest/include/gtest/gtest-death-test.h:
+
+/usr/include/linux/stat.h:
 
 ../lib/googletest/googletest/include/gtest/gtest-printers.h:
 
@@ -2241,13 +2251,11 @@ CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o: ../tests/test_histor
 
 /usr/include/c++/11/iostream:
 
+/usr/include/c++/11/algorithm:
+
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
 /usr/include/c++/11/bits/locale_classes.h:
-
-../lib/googletest/googletest/include/gtest/gtest-death-test.h:
-
-/usr/include/linux/stat.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
@@ -2599,8 +2607,6 @@ CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o: ../tests/test_histor
 
 /usr/include/alloca.h:
 
-/usr/include/c++/11/bits/std_abs.h:
-
 ../src/usuarioRegistrado.hpp:
 
 /usr/include/c++/11/cstdio:
@@ -2661,6 +2667,8 @@ CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o: ../tests/test_histor
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
 
+/usr/include/c++/11/bits/uniform_int_dist.h:
+
 /usr/include/c++/11/bits/basic_ios.h:
 
 /usr/include/c++/11/bits/atomic_base.h:
@@ -2675,9 +2683,11 @@ CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o: ../tests/test_histor
 
 /usr/include/c++/11/cwctype:
 
-/usr/include/x86_64-linux-gnu/asm/types.h:
-
 /usr/include/c++/11/bits/streambuf_iterator.h:
+
+/usr/include/linux/types.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
@@ -2690,6 +2700,14 @@ CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o: ../tests/test_histor
 /usr/include/c++/11/istream:
 
 /usr/include/c++/11/bits/istream.tcc:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/bits/statx.h:
+
+/usr/include/c++/11/bits/stl_algobase.h:
+
+../src/mail.hpp:
 
 /usr/include/c++/11/vector:
 
@@ -2749,19 +2767,21 @@ CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o: ../tests/test_histor
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
 
-/usr/include/unistd.h:
-
-/usr/include/c++/11/bits/stl_algobase.h:
-
-../src/mail.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/statx.h:
-
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
 
 /usr/include/asm-generic/posix_types.h:
 
 /usr/include/c++/11/bits/fstream.tcc:
+
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
+
+/usr/include/c++/11/bits/algorithmfwd.h:
+
+/usr/include/c++/11/bits/std_abs.h:
+
+/usr/include/c++/11/bits/stl_heap.h:
 
 ../src/usuarioRegistrado.cpp:
 
@@ -2794,7 +2814,3 @@ CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o: ../tests/test_histor
 /usr/include/c++/11/bits/streambuf.tcc:
 
 /usr/include/string.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
-
-/usr/include/linux/types.h:
