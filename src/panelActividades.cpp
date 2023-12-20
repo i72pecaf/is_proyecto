@@ -457,13 +457,13 @@ void panelActividades::inscribirListaEspera(int idActividad, std::string nombreU
             
             if(std::stoi(cadIdActividad) == idActividad) { // Si encontramos la actividad que quiere el usuario continuamos
                 lineaActividadNueva = cadIdActividad + ';'; // En la linea nueva metemos el id
-                for(int j = 0 ; j<=19 ; j++) { // El siguiente sera la lista de preinscritos que nosotros tenemos
+                for(int j = 0 ; j<=19 ; j++) { // El siguiente sera la lista de espera que nosotros tenemos
                     // Leemos cada campo y lo guardamos
                     std::getline(streamActividad, cadAux, ';');
                     lineaActividadNueva = lineaActividadNueva + cadAux +';';
                 }
 
-                // Metemos la lista de preinscritos con el usuario inscrito
+                // Metemos la lista de espera con el usuario inscrito
                 std::cout << "La linea hasta ahora:\n" << lineaActividadNueva << std::endl;
                 lineaActividadNueva = lineaActividadNueva + cadlistaEspera +';';
                 std::cout << "La linea a meter es:\n" << lineaActividadNueva << std::endl;
