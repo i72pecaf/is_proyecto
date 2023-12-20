@@ -38,12 +38,11 @@ add_executable(programa ${common_sources} ${common_headers})
 target_compile_options(programa PRIVATE -Wall)
 
 # Configuración de Google Test
-# Asume que ya configuraste Google Test en lib/googletest/
 include_directories(lib/googletest/include)
 add_subdirectory(lib/googletest)
 
 # Lista de archivos fuente para las pruebas
-# Cuidado de no incluir el main o se lanzara el programa principal
+# Cuidado de no incluir el main o se lanzara el programa principal !!!!!!
 set(test_sources
     tests/test_historia_1.cpp
     tests/test_historia_2.cpp
