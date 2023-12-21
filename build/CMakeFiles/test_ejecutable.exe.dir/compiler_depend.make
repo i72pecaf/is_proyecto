@@ -1487,6 +1487,10 @@ CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_1.cpp.o: ../tests/test_hi
   ../lib/googletest/googletest/include/gtest/gtest-typed-test.h \
   ../lib/googletest/googletest/include/gtest/gtest_pred_impl.h \
   ../lib/googletest/googletest/include/gtest/gtest_prod.h \
+  /usr/include/c++/11/fstream \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc \
   ../src/panelActividades.hpp \
   ../src/actividad.hpp \
   ../src/actividad.hpp

@@ -246,11 +246,11 @@ void panelActividades::introducirActividad(actividad actividadNueva, bool& flagA
                        + actividadNueva.get_nivel() + ";"
                        + actividadNueva.get_dias() + ";"
                        //Inscritos
-                       + "" + ";"
+                       + actividadNueva.get_listaInscritos() + ";"
                        //Preinscritos
-                       + "" + ";"
+                       + actividadNueva.get_listaPreinscritos() + ";"
                        //Lista de espera
-                       + "" + ";" ;  
+                       + actividadNueva.get_listaEspera() + ";" ;  
 
         // Añadimos la cadena al final del fichero y ponemos un salto de linea
         fout << "\n" << lineaActividad;    

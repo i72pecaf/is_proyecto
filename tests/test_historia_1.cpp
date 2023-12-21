@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <fstream>
 #include "../src/panelActividades.hpp"
 #include "../src/actividad.hpp"
 
@@ -9,6 +10,10 @@ TEST(Test_HistoriaUsuario_1, Test1) {
 
 TEST(Test_HistoriaUsuario_1, Test2) {
     // Test para comprobar que se introduce el anuncio correctamente en el fichero
+    // Esta es la cadena que queremos ver si se ha introducido bien al final del fichero
+    std::string cadenaAux = "1;Seminario;i72ritom@uco.es;Seminario de Inteligencia artificialSe habla de la IA;25.000000;IA;Campos de Rabanales, Aulario Averroes, P10;50.000000;5.000000;i92mojip@uco.es;20/12/2023;20/12/202321/12/2023;;Dos horas;Programacion en Python;;;;;i72pecaf@uco.es, i81pegun@uco.es;";
+    std::string ultimaLineaFichero;
+
     bool anuncioIntroducido = false;
     
     panelActividades panel;
@@ -53,7 +58,31 @@ TEST(Test_HistoriaUsuario_1, Test2) {
     a.set_tareas("Programacion en Python");
     // No hay nivel
     // No hay dias
+    // No hay preinscritos
+    a.set_listaEspera("i72pecaf@uco.es, i81pegun@uco.es");
+    // No hay lista de espera
 
     // Introducimos el anuncio en el fichero
     panel.introducirActividad(a, anuncioIntroducido);
+
+    // Abrimos el fichero y leemos la ultima linea
+    std::ifstream fin("../actividades.txt");
+
+    if (!fin.is_open()) {
+        anuncioIntroducido = false;
+    } else {
+        while (std::getline(fin, ultimaLineaFichero)){
+            // No queremos hacer nada, solo obtener el ultimo valor, la ultima linea sera la introducida
+        }
+    }
+
+    fin.close();
+    // Si ambas son iguales, la funcion de introducirActividad funciona correctamente
+    if(cadenaAux == ultimaLineaFichero){
+        anuncioIntroducido = true;
+    } else {
+        anuncioIntroducido = false;
+    }
+
+    EXPECT_TRUE(anuncioIntroducido);
 }

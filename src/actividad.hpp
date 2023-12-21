@@ -27,7 +27,9 @@ class actividad {
         std::string _nivel;
         std::string _dias;
         bool _estado;
-        std::vector<std::string> _listaEspera; // Vector de strings
+        std::string _listaInscritos;
+        std::string _listaPreinscritos;
+        std::string _listaEspera;
 
     public:
         actividad() { // Constructor por defecto, con valores por defecto
@@ -50,7 +52,9 @@ class actividad {
             _nivel = "";
             _dias = "";
             _estado = false; // Por defecto la actividad no esta publicada
-            _listaEspera = std::vector<std::string>(); // Establecemos el array vacio por defecto, sin nadie en la lista de espera
+            _listaInscritos = "";
+            _listaPreinscritos = "";
+            _listaEspera = "";
         }
 
         inline void set_idActividad(int id) { _idActividad = id; }
@@ -110,8 +114,14 @@ class actividad {
         inline void set_estado(bool estado) { _estado = estado; }
         inline bool get_estado() { return _estado; }
 
-        inline std::vector<std::string> get_listaEspera() { return _listaEspera; }
-        inline void set_listaEspera(std::vector<std::string> listaEsperaNueva) { _listaEspera = listaEsperaNueva; }
+        inline std::string get_listaInscritos() { return _listaInscritos; }
+        inline void set_listaInscritos(std::string listaInscritosNueva) { _listaInscritos = listaInscritosNueva; }
+
+        inline std::string get_listaPreinscritos() { return _listaPreinscritos; }
+        inline void set_listaPreinscritos(std::string listaPreinscritosNueva) { _listaPreinscritos = listaPreinscritosNueva; }
+
+        inline std::string get_listaEspera() { return _listaEspera; }
+        inline void set_listaEspera(std::string listaEsperaNueva) { _listaEspera = listaEsperaNueva; }
 };
 
 #endif

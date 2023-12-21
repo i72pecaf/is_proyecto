@@ -1,3 +1,4 @@
 0524;true;Taller;i81sergio@uco.es;Taller de arcilla;Se hacen cosas con madera;50;Madera;Rabanales;5;25;i72pecaf@uco.es;25/12/2023;27/12/2023;;;;Bajo;3;Natalia;David;Paula;
-1234;true;Taller;i72david@uco.es;Taller de madera;Se hacen cosas con madera;50;Madera;Rabanales;4;25;i72pecaf@uco.es;25/12/2023;27/12/2023;;;;Bajo;3;Natalia;David, Carlos, Maria;Paula;
+1234;true;Taller;i72david@uco.es;Taller de madera;Se hacen cosas con madera;50;Madera;Rabanales;3;25;i72pecaf@uco.es;25/12/2023;27/12/2023;;;;Bajo;3;Natalia;David, Carlos, Maria;Paula;
 5432;true;Taller;i81sergio@uco.es;Taller de arcilla;Se hacen cosas con madera;50;Madera;Rabanales;5;25;i72pecaf@uco.es;25/12/2023;27/12/2023;;;;Bajo;3;Natalia;;Paula;
+1;Seminario;i72ritom@uco.es;Seminario de Inteligencia artificialSe habla de la IA;25.000000;IA;Campos de Rabanales, Aulario Averroes, P10;50.000000;5.000000;i92mojip@uco.es;20/12/2023;20/12/202321/12/2023;;Dos horas;Programacion en Python;;;;;i72pecaf@uco.es, i81pegun@uco.es;
