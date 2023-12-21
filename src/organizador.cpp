@@ -128,9 +128,9 @@ void organizador::crearActividad() {
 
     // ----- El coordinador decide si terminar de completar el anuncio o no -----
     std::cout << "Indica si quieres completar la actividad o dejar solo los valores obligatorios ya rellenados" << std::endl;
-    std::cout << "---------------------------------------------" << std::endl;
-    std::cout << "[1] - Completar anuncio" << std::endl;
-    std::cout << "[2] - Guardar anuncio solo con los valores obligatorios" << std::endl;
+    std::cout << "--------------------------------------------------------------------------------------------" << std::endl;
+    std::cout << "[1] - Completar actividad" << std::endl;
+    std::cout << "[2] - Guardar actividad solo con los valores obligatorios" << std::endl;
     std::cout << "[Cualquier otro numero] - Salir sin guardar nada" << std::endl;
     std::cout << "\n> ";
     
@@ -385,21 +385,21 @@ void organizador::crearActividad() {
         // ----- Mostramos la actividad a guardar ----- 
         std::cout << "Indica si quieres completar la actividad o dejar solo los valores obligatorios ya rellenados" << std::endl;
         std::cout << "---------------------------------------------" << std::endl;
-        std::cout << "[1] - Guardar anuncio" << std::endl;
-        std::cout << "[2] - Salir sin guardar el anuncio" << std::endl;
+        std::cout << "[1] - Guardar actividad" << std::endl;
+        std::cout << "[2] - Salir sin guardar el actividad" << std::endl;
         std::cout << "\n> ";
         
         std::cin >> optGuardar;
 
-        if(optGuardar == 1) { // Guardamos el anuncio
+        if(optGuardar == 1) { // Guardamos la actividad
             panel.introducirActividad(actividadNueva, flagActividadGuardada);
             if(flagActividadGuardada){
             std::cout << "Actividad guardada correctamente" << std::endl;    
             } else {
-                std::cout << "No se ha podido guardar el anuncio creado. Saliendo..." << std::endl;
+                std::cout << "No se ha podido guardar la actividad creada. Saliendo..." << std::endl;
             }
         } else {
-            std::cout << " Anuncio no guardado. Saliendo..." << std::endl;
+            std::cout << " Actividad no guardado. Saliendo..." << std::endl;
         }
 
         // ---------------
