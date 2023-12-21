@@ -3,15 +3,15 @@ Repositorio con las prácticas de la asignatura de Ingeniería del Software. Cur
 
 
 Para compilar borrar la carpeta build (si existiera) y:
-  mkdir build
-  cd build
-  cmake ..
-  make
+- mkdir build
+- cd build
+- cmake ..
+- make
 
 Para ejecutar el programa:
-  cd build/
-  ./programa.exe
+- cd build/
+- ./programa.exe
 
 Para ejecutar los test:
-  cd build/
-  ./test_ejecutable.exe
+- cd build/
+- ./test_ejecutable.exe
