@@ -34,7 +34,7 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
             
             if(soloPublicadas) {// En el caso de que mostremos solo los publicados   
                 // En esta parte necesitamos conocer primero el estado del anuncio. Por eso el campo del estado es el segundo
-                if(cadEstado=="true"){ // Se muestra informacion del publicado
+                if(cadEstado=="1"){ // Se muestra informacion del publicado
                     std::cout << "===========================" << std::endl;  
                     std::cout << "| > Mostrando actividad < |" << std::endl;
                     std::cout << "===========================" << std::endl;  
@@ -213,7 +213,7 @@ void panelActividades::introducirActividad(actividad actividadNueva, bool& flagA
     fout.open(get_listaActividades(), std::ios::app);
 
     if(!fout.is_open()){ // Manejo de errores, caso donde no se abra bien el fichero
-        std::cout << "ERROR: No se ha podido abrir el fichero de actividades" << std::endl;
+        std::cout << "ERROR: No se ha podido abrir el fichero de actividades al guardar" << std::endl;
         flagActividadGuardada = false;
     } else { // Caso donde abrimos correctamente
         
@@ -221,16 +221,18 @@ void panelActividades::introducirActividad(actividad actividadNueva, bool& flagA
         aux << std::put_time(&actividadNueva.get_fechaInicio(), "%d/%m/%Y");
         auxfechaInicio = aux.str();
         
+        aux.str("");
+
         aux << std::put_time(&actividadNueva.get_fechaFinal(), "%d/%m/%Y");
         auxfechaFin = aux.str();
         
         // Guardamos todas las propiedades en una unica cadena separada por ;
         // Se pone en varias lineas para una mejor legibilidad del codigo
-        lineaActividad = actividadNueva.get_idActividad() + ";" 
+        lineaActividad = std::to_string(actividadNueva.get_idActividad()) + ";" 
                        + std::to_string(actividadNueva.get_estado()) + ";" // Guardamos el estado lo segundo para un mejor tratamiento del fichero
                        + actividadNueva.get_tipo() + ";"
                        + actividadNueva.get_director() + ";"
-                       + actividadNueva.get_nombre()
+                       + actividadNueva.get_nombre() + ";"
                        + actividadNueva.get_descripcion() + ";"
                        + std::to_string(actividadNueva.get_asistencia()) + ";"
                        + actividadNueva.get_tema() + ";"
@@ -253,7 +255,7 @@ void panelActividades::introducirActividad(actividad actividadNueva, bool& flagA
                        + actividadNueva.get_listaEspera() + ";" ;  
 
         // Añadimos la cadena al final del fichero y ponemos un salto de linea
-        fout << "\n" << lineaActividad;    
+        fout << lineaActividad << "\n";    
         flagActividadGuardada = true;                  
     }
 

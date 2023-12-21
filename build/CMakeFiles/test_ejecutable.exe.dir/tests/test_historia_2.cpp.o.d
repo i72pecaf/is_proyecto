@@ -257,4 +257,10 @@ CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_2.cpp.o: \
  /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/lib/googletest/googletest/include/gtest/gtest-test-part.h \
  /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/lib/googletest/googletest/include/gtest/gtest-typed-test.h \
  /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/lib/googletest/googletest/include/gtest/gtest_pred_impl.h \
- /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/lib/googletest/googletest/include/gtest/gtest_prod.h
+ /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/lib/googletest/googletest/include/gtest/gtest_prod.h \
+ /usr/include/c++/11/fstream \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc \
+ /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/tests/../src/panelActividades.hpp \
+ /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/tests/../src/actividad.hpp
