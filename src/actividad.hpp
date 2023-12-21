@@ -81,8 +81,8 @@ class actividad {
         inline void set_ubicacion(std::string ubicacion) { _ubicacion = ubicacion; }
         inline std::string get_ubicacion() { return _ubicacion; }
 
-        inline void set_aforo(float aforo) { _aforo = aforo; }
-        inline float get_aforo() { return _aforo; }
+        inline void set_aforo(int aforo) { _aforo = aforo; }
+        inline int get_aforo() { return _aforo; }
 
         inline void set_precio(float precio) { _precio = precio; }
         inline float get_precio() { return _precio; }

@@ -4,7 +4,7 @@
 
 TEST(Test_HistoriaUsuario_2, Test1) {
     // Comprobamos que el mostrar anuncio maneja correctamente el caso donde el fichero este vacio
-    std::string ficheroVacio = "ficheroTemporal.txt";
+    std::string ficheroVacio = "tempTest2.txt.txt";
     std::ofstream ftemp(ficheroVacio);
     ftemp.close();
 

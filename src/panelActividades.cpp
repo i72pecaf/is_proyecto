@@ -20,7 +20,7 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
     std::string tipoActividad; // Necesario para diferenciar el tipo de anuncio y mostrar su informacion unica
 
     std::ifstream fin; // Fichero de lectura
-    std::cout << this->get_listaActividades() << std::endl;
+
     fin.open(this->get_listaActividades()); // Abrimos el fichero
     if(!fin.is_open()){ // Manejo de errores, caso donde no se abra bien el fichero
         std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
@@ -294,8 +294,7 @@ void panelActividades::preinscribirUsuario(int idActividad, std::string nombreUs
     bool flagEncontrado = false; // Por defecto no se encuentra la actividad
     
     std::ifstream fin; // Fichero de lectura
-    
-    std::cout << this->get_listaActividades() << std::endl;
+
     fin.open(this->get_listaActividades()); // Abrimos el fichero
     if(!fin.is_open()){ // Manejo de errores, caso donde no se abra bien el fichero
         std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
@@ -305,7 +304,7 @@ void panelActividades::preinscribirUsuario(int idActividad, std::string nombreUs
             std::istringstream streamActividad(lineaActividad); // Objeto para entrada de datos, facilita el manejo de strings
 
             std::getline(streamActividad, cadIdActividad, ';'); // El primer elemento es el id de la actividad
-            std::cout<<"Entro con: "<< cadIdActividad << " y " << idActividad <<std::endl;
+
             if(std::stoi(cadIdActividad) == idActividad) { // Si encontramos la actividad que quiere el usuario continuamos
 
                 for(int i=0; i<9 ; i++){ // Hasta 9 dado que es la posicion del aforo
@@ -334,7 +333,7 @@ void panelActividades::preinscribirUsuario(int idActividad, std::string nombreUs
     fin.close();
 
     if(flagEncontrado){
-        std::cout<< " La actividad " << idActividad << " tiene de aforo: " << aforoActividad << " y su lista es: " << cadlistaPreinscritos << std::endl;
+        //std::cout<< " La actividad " << idActividad << " tiene de aforo: " << aforoActividad << " y su lista es: " << cadlistaPreinscritos << std::endl;
         // Para saber cuantos hay en la lista cuento las comas
         for (char c : cadlistaPreinscritos) {
             if (c == ',') {
@@ -345,7 +344,11 @@ void panelActividades::preinscribirUsuario(int idActividad, std::string nombreUs
 
         if(numPreinscritos+1 <= aforoActividad){ // Si hay espacio en la lista de espera se añade al usuario
 
-            cadlistaPreinscritos = cadlistaPreinscritos + ", " + nombreUsuario;
+            if(cadlistaPreinscritos.empty()){
+                cadlistaPreinscritos = nombreUsuario;
+            } else {
+                cadlistaPreinscritos = cadlistaPreinscritos + ", " + nombreUsuario;
+            }
 
             // Ahora procedemos a añadir al usuario, dado que hay espacio para el
             fin.open(this->get_listaActividades()); // Abrimos el fichero
@@ -367,15 +370,12 @@ void panelActividades::preinscribirUsuario(int idActividad, std::string nombreUs
                         }
 
                         // Metemos la lista de preinscritos con el usuario inscrito
-                        std::cout << "La linea hasta ahora:\n" << lineaActividadNueva << std::endl;
                         lineaActividadNueva = lineaActividadNueva + cadlistaPreinscritos +';';
 
                         // Y solo nos queda la lista de espera, saltandonos la lista de preinscritos existente
                         std::getline(streamActividad, cadAux, ';');
                         std::getline(streamActividad, cadAux, ';');
                         lineaActividadNueva = lineaActividadNueva + cadAux +';';
-
-                        std::cout << "La linea a meter es:\n" << lineaActividadNueva << std::endl;
 
                         break;
                     }
@@ -472,9 +472,7 @@ void panelActividades::inscribirListaEspera(int idActividad, std::string nombreU
                 }
 
                 // Metemos la lista de espera con el usuario inscrito
-                std::cout << "La linea hasta ahora:\n" << lineaActividadNueva << std::endl;
                 lineaActividadNueva = lineaActividadNueva + cadlistaEspera +';';
-                std::cout << "La linea a meter es:\n" << lineaActividadNueva << std::endl;
 
                 break;
             }
