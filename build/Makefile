@@ -162,30 +162,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named programa
+# Target rules for targets named programa.exe
 
 # Build rule for target.
-programa: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 programa
-.PHONY : programa
+programa.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 programa.exe
+.PHONY : programa.exe
 
 # fast build rule for target.
-programa/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/build
-.PHONY : programa/fast
+programa.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/build
+.PHONY : programa.exe/fast
 
 #=============================================================================
-# Target rules for targets named test_ejecutable
+# Target rules for targets named test_ejecutable.exe
 
 # Build rule for target.
-test_ejecutable: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_ejecutable
-.PHONY : test_ejecutable
+test_ejecutable.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_ejecutable.exe
+.PHONY : test_ejecutable.exe
 
 # fast build rule for target.
-test_ejecutable/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/build
-.PHONY : test_ejecutable/fast
+test_ejecutable.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/build
+.PHONY : test_ejecutable.exe/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -244,8 +244,8 @@ src/director.o: src/director.cpp.o
 
 # target to build an object file
 src/director.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/director.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/director.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/director.cpp.o
 .PHONY : src/director.cpp.o
 
 src/director.i: src/director.cpp.i
@@ -253,8 +253,8 @@ src/director.i: src/director.cpp.i
 
 # target to preprocess a source file
 src/director.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/director.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/director.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/director.cpp.i
 .PHONY : src/director.cpp.i
 
 src/director.s: src/director.cpp.s
@@ -262,8 +262,8 @@ src/director.s: src/director.cpp.s
 
 # target to generate assembly for a file
 src/director.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/director.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/director.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/director.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/director.cpp.s
 .PHONY : src/director.cpp.s
 
 src/mail.o: src/mail.cpp.o
@@ -271,8 +271,8 @@ src/mail.o: src/mail.cpp.o
 
 # target to build an object file
 src/mail.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/mail.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/mail.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/mail.cpp.o
 .PHONY : src/mail.cpp.o
 
 src/mail.i: src/mail.cpp.i
@@ -280,8 +280,8 @@ src/mail.i: src/mail.cpp.i
 
 # target to preprocess a source file
 src/mail.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/mail.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/mail.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/mail.cpp.i
 .PHONY : src/mail.cpp.i
 
 src/mail.s: src/mail.cpp.s
@@ -289,8 +289,8 @@ src/mail.s: src/mail.cpp.s
 
 # target to generate assembly for a file
 src/mail.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/mail.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/mail.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/mail.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/mail.cpp.s
 .PHONY : src/mail.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -298,7 +298,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -306,7 +306,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -314,7 +314,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/organizador.o: src/organizador.cpp.o
@@ -322,8 +322,8 @@ src/organizador.o: src/organizador.cpp.o
 
 # target to build an object file
 src/organizador.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/organizador.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/organizador.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/organizador.cpp.o
 .PHONY : src/organizador.cpp.o
 
 src/organizador.i: src/organizador.cpp.i
@@ -331,8 +331,8 @@ src/organizador.i: src/organizador.cpp.i
 
 # target to preprocess a source file
 src/organizador.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/organizador.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/organizador.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/organizador.cpp.i
 .PHONY : src/organizador.cpp.i
 
 src/organizador.s: src/organizador.cpp.s
@@ -340,8 +340,8 @@ src/organizador.s: src/organizador.cpp.s
 
 # target to generate assembly for a file
 src/organizador.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/organizador.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/organizador.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/organizador.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/organizador.cpp.s
 .PHONY : src/organizador.cpp.s
 
 src/panelActividades.o: src/panelActividades.cpp.o
@@ -349,8 +349,8 @@ src/panelActividades.o: src/panelActividades.cpp.o
 
 # target to build an object file
 src/panelActividades.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/panelActividades.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/panelActividades.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/panelActividades.cpp.o
 .PHONY : src/panelActividades.cpp.o
 
 src/panelActividades.i: src/panelActividades.cpp.i
@@ -358,8 +358,8 @@ src/panelActividades.i: src/panelActividades.cpp.i
 
 # target to preprocess a source file
 src/panelActividades.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/panelActividades.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/panelActividades.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/panelActividades.cpp.i
 .PHONY : src/panelActividades.cpp.i
 
 src/panelActividades.s: src/panelActividades.cpp.s
@@ -367,8 +367,8 @@ src/panelActividades.s: src/panelActividades.cpp.s
 
 # target to generate assembly for a file
 src/panelActividades.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/panelActividades.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/panelActividades.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/panelActividades.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/panelActividades.cpp.s
 .PHONY : src/panelActividades.cpp.s
 
 src/usuarioRegistrado.o: src/usuarioRegistrado.cpp.o
@@ -376,8 +376,8 @@ src/usuarioRegistrado.o: src/usuarioRegistrado.cpp.o
 
 # target to build an object file
 src/usuarioRegistrado.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioRegistrado.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioRegistrado.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/usuarioRegistrado.cpp.o
 .PHONY : src/usuarioRegistrado.cpp.o
 
 src/usuarioRegistrado.i: src/usuarioRegistrado.cpp.i
@@ -385,8 +385,8 @@ src/usuarioRegistrado.i: src/usuarioRegistrado.cpp.i
 
 # target to preprocess a source file
 src/usuarioRegistrado.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioRegistrado.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioRegistrado.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/usuarioRegistrado.cpp.i
 .PHONY : src/usuarioRegistrado.cpp.i
 
 src/usuarioRegistrado.s: src/usuarioRegistrado.cpp.s
@@ -394,8 +394,8 @@ src/usuarioRegistrado.s: src/usuarioRegistrado.cpp.s
 
 # target to generate assembly for a file
 src/usuarioRegistrado.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioRegistrado.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioRegistrado.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioRegistrado.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/usuarioRegistrado.cpp.s
 .PHONY : src/usuarioRegistrado.cpp.s
 
 src/usuarioVisitante.o: src/usuarioVisitante.cpp.o
@@ -403,8 +403,8 @@ src/usuarioVisitante.o: src/usuarioVisitante.cpp.o
 
 # target to build an object file
 src/usuarioVisitante.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioVisitante.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/usuarioVisitante.cpp.o
 .PHONY : src/usuarioVisitante.cpp.o
 
 src/usuarioVisitante.i: src/usuarioVisitante.cpp.i
@@ -412,8 +412,8 @@ src/usuarioVisitante.i: src/usuarioVisitante.cpp.i
 
 # target to preprocess a source file
 src/usuarioVisitante.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioVisitante.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/usuarioVisitante.cpp.i
 .PHONY : src/usuarioVisitante.cpp.i
 
 src/usuarioVisitante.s: src/usuarioVisitante.cpp.s
@@ -421,8 +421,8 @@ src/usuarioVisitante.s: src/usuarioVisitante.cpp.s
 
 # target to generate assembly for a file
 src/usuarioVisitante.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.dir/build.make CMakeFiles/programa.dir/src/usuarioVisitante.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/src/usuarioVisitante.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/programa.exe.dir/build.make CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/src/usuarioVisitante.cpp.s
 .PHONY : src/usuarioVisitante.cpp.s
 
 tests/test_historia_1.o: tests/test_historia_1.cpp.o
@@ -430,7 +430,7 @@ tests/test_historia_1.o: tests/test_historia_1.cpp.o
 
 # target to build an object file
 tests/test_historia_1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_1.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_1.cpp.o
 .PHONY : tests/test_historia_1.cpp.o
 
 tests/test_historia_1.i: tests/test_historia_1.cpp.i
@@ -438,7 +438,7 @@ tests/test_historia_1.i: tests/test_historia_1.cpp.i
 
 # target to preprocess a source file
 tests/test_historia_1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_1.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_1.cpp.i
 .PHONY : tests/test_historia_1.cpp.i
 
 tests/test_historia_1.s: tests/test_historia_1.cpp.s
@@ -446,7 +446,7 @@ tests/test_historia_1.s: tests/test_historia_1.cpp.s
 
 # target to generate assembly for a file
 tests/test_historia_1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_1.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_1.cpp.s
 .PHONY : tests/test_historia_1.cpp.s
 
 tests/test_historia_2.o: tests/test_historia_2.cpp.o
@@ -454,7 +454,7 @@ tests/test_historia_2.o: tests/test_historia_2.cpp.o
 
 # target to build an object file
 tests/test_historia_2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_2.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_2.cpp.o
 .PHONY : tests/test_historia_2.cpp.o
 
 tests/test_historia_2.i: tests/test_historia_2.cpp.i
@@ -462,7 +462,7 @@ tests/test_historia_2.i: tests/test_historia_2.cpp.i
 
 # target to preprocess a source file
 tests/test_historia_2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_2.cpp.i
 .PHONY : tests/test_historia_2.cpp.i
 
 tests/test_historia_2.s: tests/test_historia_2.cpp.s
@@ -470,7 +470,7 @@ tests/test_historia_2.s: tests/test_historia_2.cpp.s
 
 # target to generate assembly for a file
 tests/test_historia_2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_2.cpp.s
 .PHONY : tests/test_historia_2.cpp.s
 
 tests/test_historia_3.o: tests/test_historia_3.cpp.o
@@ -478,7 +478,7 @@ tests/test_historia_3.o: tests/test_historia_3.cpp.o
 
 # target to build an object file
 tests/test_historia_3.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_3.cpp.o
 .PHONY : tests/test_historia_3.cpp.o
 
 tests/test_historia_3.i: tests/test_historia_3.cpp.i
@@ -486,7 +486,7 @@ tests/test_historia_3.i: tests/test_historia_3.cpp.i
 
 # target to preprocess a source file
 tests/test_historia_3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_3.cpp.i
 .PHONY : tests/test_historia_3.cpp.i
 
 tests/test_historia_3.s: tests/test_historia_3.cpp.s
@@ -494,7 +494,7 @@ tests/test_historia_3.s: tests/test_historia_3.cpp.s
 
 # target to generate assembly for a file
 tests/test_historia_3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.dir/build.make CMakeFiles/test_ejecutable.dir/tests/test_historia_3.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ejecutable.exe.dir/build.make CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_3.cpp.s
 .PHONY : tests/test_historia_3.cpp.s
 
 # Help Target
@@ -513,8 +513,8 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... programa"
-	@echo "... test_ejecutable"
+	@echo "... programa.exe"
+	@echo "... test_ejecutable.exe"
 	@echo "... src/director.o"
 	@echo "... src/director.i"
 	@echo "... src/director.s"

@@ -20,18 +20,6 @@ int main(){
 
     usuarioVisitante usuario_v;
 
-    // ====================== Borrar tras desarrollar ======================
-
-    correo = "a55luhom@uco.es";
-    usuarioRegistrado usuario_r(correo);
-    usuario_r.preinscripcionActividad(1234);
-
-/*
-    cout << "\n\n\n";
-    usuario_v.verActividadesPublicadas();
-    cout << "||||||||||" << endl;*/
-    //===================================================================== 
-
     // -- Bloque de código
     cout << "\n---------------------------------------------" << endl;
     cout << "Bienvenido al gestor de actividades de la UCO" << endl;

@@ -210,7 +210,7 @@ void panelActividades::introducirActividad(actividad actividadNueva, bool& flagA
     std::ofstream fout; // Fichero de escritura    
 
     // Abrimos el fichero para escribir
-    fout.open(get_listaActividades());
+    fout.open(get_listaActividades(), std::ios::app);
 
     if(!fout.is_open()){ // Manejo de errores, caso donde no se abra bien el fichero
         std::cout << "ERROR: No se ha podido abrir el fichero de actividades" << std::endl;
@@ -253,7 +253,7 @@ void panelActividades::introducirActividad(actividad actividadNueva, bool& flagA
                        + "" + ";" ;  
 
         // Añadimos la cadena al final del fichero y ponemos un salto de linea
-        fout << lineaActividad << std::endl;    
+        fout << "\n" << lineaActividad;    
         flagActividadGuardada = true;                  
     }
 

@@ -1,5 +1,5 @@
-/mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build/CMakeFiles/programa.dir
-/mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build/CMakeFiles/test_ejecutable.dir
+/mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build/CMakeFiles/programa.exe.dir
+/mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build/CMakeFiles/test_ejecutable.exe.dir
 /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build/CMakeFiles/edit_cache.dir
 /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build/CMakeFiles/rebuild_cache.dir
 /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/build/CMakeFiles/list_install_components.dir

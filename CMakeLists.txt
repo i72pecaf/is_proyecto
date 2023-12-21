@@ -32,10 +32,10 @@ set(common_headers
 )
 
 # Genera la lista de archivos objeto para el ejecutable principal
-add_executable(programa ${common_sources} ${common_headers})
+add_executable(programa.exe ${common_sources} ${common_headers})
 
 # Opciones de compilación para el ejecutable principal
-target_compile_options(programa PRIVATE -Wall)
+target_compile_options(programa.exe PRIVATE -Wall)
 
 # Configuración de Google Test
 include_directories(lib/googletest/include)
@@ -57,10 +57,10 @@ set(test_sources
 )
 
 # Genera el ejecutable de pruebas
-add_executable(test_ejecutable ${test_sources} ${common_headers})
+add_executable(test_ejecutable.exe ${test_sources} ${common_headers})
 
 # Enlaza con Google Test y otras bibliotecas necesarias
-target_link_libraries(test_ejecutable gtest_main)
+target_link_libraries(test_ejecutable.exe gtest_main)
 
 # Opciones de compilación para el ejecutable de pruebas
-target_compile_options(test_ejecutable PRIVATE -Wall)
+target_compile_options(test_ejecutable.exe PRIVATE -Wall)
