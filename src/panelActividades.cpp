@@ -25,16 +25,98 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
     if(!fin.is_open()){ // Manejo de errores, caso donde no se abra bien el fichero
         std::cout << "ERROR: No se ha podido abrir el fichero" << std::endl;
     } else {
-        // Procedemos a leer el fichero y mostrar las actividades
-        while (getline(fin, lineaActividad)) { // Vamos linea por linea, cada linea un anuncio
-            std::istringstream streamActividad(lineaActividad); // Objeto para entrada de datos, facilita el manejo de strings
+        if (fin.peek() == std::ifstream::traits_type::eof()) {
+            std::cout << "El fichero esta vacio, no hay actividades para leer" << std::endl;
+        } else {
+            while (getline(fin, lineaActividad)) { // Vamos linea por linea, cada linea un anuncio
+                std::istringstream streamActividad(lineaActividad); // Objeto para entrada de datos, facilita el manejo de strings
 
-            std::getline(streamActividad, cadIdActividad, ';'); // El primer elemento es el id de la actividad
-            std::getline(streamActividad, cadEstado, ';'); // El segundo elemento es el estado de la actividad (publicada o no)
-            
-            if(soloPublicadas) {// En el caso de que mostremos solo los publicados   
-                // En esta parte necesitamos conocer primero el estado del anuncio. Por eso el campo del estado es el segundo
-                if(cadEstado=="1"){ // Se muestra informacion del publicado
+                std::getline(streamActividad, cadIdActividad, ';'); // El primer elemento es el id de la actividad
+                std::getline(streamActividad, cadEstado, ';'); // El segundo elemento es el estado de la actividad (publicada o no)
+                
+                if(soloPublicadas) {// En el caso de que mostremos solo los publicados   
+                    // En esta parte necesitamos conocer primero el estado del anuncio. Por eso el campo del estado es el segundo
+                    if(cadEstado=="1"){ // Se muestra informacion del publicado
+                        std::cout << "===========================" << std::endl;  
+                        std::cout << "| > Mostrando actividad < |" << std::endl;
+                        std::cout << "===========================" << std::endl;  
+
+                        std::cout << "Id de la actividad: " << cadIdActividad << std::endl;
+                        std::cout << "Actividad publicada: " << cadEstado << std::endl;
+
+                        std::getline(streamActividad, tipoActividad, ';'); // El siguiente elemento, que corresponde con el tipo
+                        std::cout << "Tipo de la actividad: " << tipoActividad << std::endl;
+                        
+                        std::getline(streamActividad, cadenaAux, ';'); // El siguiente elemento, que corresponde con el nombre
+                        std::cout << "Director: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Nombre: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Descripcion: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Asistencia: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Tema: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Ubicacion: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Aforo: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Precio: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Ponente: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Fecha de inicio: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Fecha de fin: " << cadenaAux << std::endl;
+                        if(tipoActividad == "Debate"){
+                            // Muestro los datos que me interesan
+                            std::getline(streamActividad, cadenaAux, ';'); // Si debate leo solo una vez
+                            std::cout << "Tipo del debate: " << cadIdActividad << std::endl;
+                            // Y salto los demas hasta las listas
+                            std::getline(streamActividad, cadenaAux, ';');
+                            std::getline(streamActividad, cadenaAux, ';');
+                            std::getline(streamActividad, cadenaAux, ';');
+                            std::getline(streamActividad, cadenaAux, ';'); // El siguiente leido seran las listas
+                        } else {
+                            if(tipoActividad == "Seminario"){
+                                // Saltamos los datos que no nos interesan
+                                std::getline(streamActividad, cadenaAux, ';');
+                                // Mostramos los datos que nos interesan
+                                std::getline(streamActividad, cadenaAux, ';'); // Este es la duracion
+                                std::cout << "Duracion: " << cadenaAux << std::endl;
+                                std::getline(streamActividad, cadenaAux, ';');
+                                std::cout << "Tareas: " << cadenaAux << std::endl;
+                                // Y saltamos los demas hasta las listas
+                                std::getline(streamActividad, cadenaAux, ';');
+                                std::getline(streamActividad, cadenaAux, ';'); // El siguiente leido seran las listas
+                            } else {
+                                if(tipoActividad == "Taller"){
+                                // Saltamos los datos que no interesan 
+                                std::getline(streamActividad, cadenaAux, ';');
+                                std::getline(streamActividad, cadenaAux, ';'); 
+                                std::getline(streamActividad, cadenaAux, ';');
+                                // Mostramos los datos que nos interesan
+                                std::getline(streamActividad, cadenaAux, ';');
+                                std::cout << "Nivel: " << cadenaAux << std::endl;
+                                std::getline(streamActividad, cadenaAux, ';');
+                                std::cout << "Dias: " << cadenaAux << std::endl;
+                                // El siguiente dato a leer sera la primera de la listas
+                                }
+                            }
+                        }
+                        // Mostramos las listas
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Lista de inscritos: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Lista de preeinscritos: " << cadenaAux << std::endl;
+                        std::getline(streamActividad, cadenaAux, ';');
+                        std::cout << "Lista de espera: " << cadenaAux << std::endl;
+
+                        std::cout << std::endl; // Fin de la actividad mostrada
+                    }
+
+                } else { // Caso donde mostramos todos los anuncios incluso los no publicados
                     std::cout << "===========================" << std::endl;  
                     std::cout << "| > Mostrando actividad < |" << std::endl;
                     std::cout << "===========================" << std::endl;  
@@ -67,10 +149,11 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
                     std::cout << "Fecha de inicio: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
                     std::cout << "Fecha de fin: " << cadenaAux << std::endl;
+
                     if(tipoActividad == "Debate"){
                         // Muestro los datos que me interesan
                         std::getline(streamActividad, cadenaAux, ';'); // Si debate leo solo una vez
-                        std::cout << "Tipo del debate: " << cadIdActividad << std::endl;
+                        std::cout << "Tipo del debate: " << cadenaAux << std::endl;
                         // Y salto los demas hasta las listas
                         std::getline(streamActividad, cadenaAux, ';');
                         std::getline(streamActividad, cadenaAux, ';');
@@ -110,90 +193,13 @@ void panelActividades::mostrarActividades(bool soloPublicadas) { // Con esta var
                     std::cout << "Lista de preeinscritos: " << cadenaAux << std::endl;
                     std::getline(streamActividad, cadenaAux, ';');
                     std::cout << "Lista de espera: " << cadenaAux << std::endl;
-
                     std::cout << std::endl; // Fin de la actividad mostrada
                 }
-
-            } else { // Caso donde mostramos todos los anuncios incluso los no publicados
-                std::cout << "===========================" << std::endl;  
-                std::cout << "| > Mostrando actividad < |" << std::endl;
-                std::cout << "===========================" << std::endl;  
-
-                std::cout << "Id de la actividad: " << cadIdActividad << std::endl;
-                std::cout << "Actividad publicada: " << cadEstado << std::endl;
-
-                std::getline(streamActividad, tipoActividad, ';'); // El siguiente elemento, que corresponde con el tipo
-                std::cout << "Tipo de la actividad: " << tipoActividad << std::endl;
-                
-                std::getline(streamActividad, cadenaAux, ';'); // El siguiente elemento, que corresponde con el nombre
-                std::cout << "Director: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Nombre: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Descripcion: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Asistencia: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Tema: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Ubicacion: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Aforo: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Precio: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Ponente: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Fecha de inicio: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Fecha de fin: " << cadenaAux << std::endl;
-
-                if(tipoActividad == "Debate"){
-                    // Muestro los datos que me interesan
-                    std::getline(streamActividad, cadenaAux, ';'); // Si debate leo solo una vez
-                    std::cout << "Tipo del debate: " << cadenaAux << std::endl;
-                    // Y salto los demas hasta las listas
-                    std::getline(streamActividad, cadenaAux, ';');
-                    std::getline(streamActividad, cadenaAux, ';');
-                    std::getline(streamActividad, cadenaAux, ';');
-                    std::getline(streamActividad, cadenaAux, ';'); // El siguiente leido seran las listas
-                } else {
-                    if(tipoActividad == "Seminario"){
-                        // Saltamos los datos que no nos interesan
-                        std::getline(streamActividad, cadenaAux, ';');
-                        // Mostramos los datos que nos interesan
-                        std::getline(streamActividad, cadenaAux, ';'); // Este es la duracion
-                        std::cout << "Duracion: " << cadenaAux << std::endl;
-                        std::getline(streamActividad, cadenaAux, ';');
-                        std::cout << "Tareas: " << cadenaAux << std::endl;
-                        // Y saltamos los demas hasta las listas
-                        std::getline(streamActividad, cadenaAux, ';');
-                        std::getline(streamActividad, cadenaAux, ';'); // El siguiente leido seran las listas
-                    } else {
-                        if(tipoActividad == "Taller"){
-                        // Saltamos los datos que no interesan 
-                        std::getline(streamActividad, cadenaAux, ';');
-                        std::getline(streamActividad, cadenaAux, ';'); 
-                        std::getline(streamActividad, cadenaAux, ';');
-                        // Mostramos los datos que nos interesan
-                        std::getline(streamActividad, cadenaAux, ';');
-                        std::cout << "Nivel: " << cadenaAux << std::endl;
-                        std::getline(streamActividad, cadenaAux, ';');
-                        std::cout << "Dias: " << cadenaAux << std::endl;
-                        // El siguiente dato a leer sera la primera de la listas
-                        }
-                    }
-                }
-                // Mostramos las listas
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Lista de inscritos: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Lista de preeinscritos: " << cadenaAux << std::endl;
-                std::getline(streamActividad, cadenaAux, ';');
-                std::cout << "Lista de espera: " << cadenaAux << std::endl;
-                std::cout << std::endl; // Fin de la actividad mostrada
             }
+        
         }
+        // Procedemos a leer el fichero y mostrar las actividades
+
     }
 
     fin.close();

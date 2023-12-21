@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <fstream>
 #include "../src/panelActividades.hpp"
-/*
+
 TEST(Test_HistoriaUsuario_2, Test1) {
     // Comprobamos que el mostrar anuncio maneja correctamente el caso donde el fichero este vacio
     std::string ficheroVacio = "ficheroTemporal.txt";
@@ -12,6 +12,7 @@ TEST(Test_HistoriaUsuario_2, Test1) {
     panel.set_listaActividades(ficheroVacio);
     EXPECT_NO_THROW(panel.mostrarActividades(true));
     remove(ficheroVacio.c_str());
+    // Se muestra correctamente al usuario que el fichero esta vacio
 }
 
 TEST(Test_HistoriaUsuario_2, Test2) {
@@ -23,4 +24,3 @@ TEST(Test_HistoriaUsuario_2, Test2) {
     EXPECT_NO_THROW(panel.mostrarActividades(true));
     // Se muestra correctamenet al usuario que el fichero no existe
 }
-*/
