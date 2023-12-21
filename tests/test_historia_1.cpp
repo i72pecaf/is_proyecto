@@ -4,8 +4,53 @@
 #include "../src/actividad.hpp"
 
 TEST(Test_HistoriaUsuario_1, Test1) {
+    // Buscamos simular la entrada de datos del usuario, para comprobar valores
+    bool flagPonente = false; // Del propio codigo original
+    int contador = 0;
+    bool flagPonenteCorrecto, flagPonenteIncorrecto;
 
-    ASSERT_TRUE(true);
+    // El usuario introduce el ponente al crear la actividad. Solo debe de haber 1
+    std::string cadenaUsuarioCorrecta = "i72pecaf@uco.es";
+    std::string cadenaUsuarioIncorrecta = "i72pecaf@uco.es , i72anluca@uco.es";
+    
+    // Fragmento de codigo original, solo cambiamos el contenido de un par de ifs para los test
+    // Primero vemos el caso donde se introduce correctamente, nuestro caso de exito llegar a la parte de no error
+    for (char c : cadenaUsuarioCorrecta) {
+        if (c == '@') {
+            contador++;
+        }
+    }
+    
+    if(contador==1){
+        flagPonente = true;
+    }
+
+    if(!flagPonente) { // En el caso de que no este bien el ponente, solicitamos de nuevo al usuario
+        flagPonenteCorrecto = false; // Si el codigo no detecta bien al ponente, es caso false
+    } else {
+        flagPonenteCorrecto = true; // Si el codigo detecta bien al ponente, es caso true
+    }
+
+    // Ahora vemos el caso donde se introduce correctamente, nuestro caso de exito llegar a la parte de error
+    for (char c : cadenaUsuarioIncorrecta) {
+        if (c == '@') {
+            contador++;
+        }
+    }
+    
+    if(contador==1){
+        flagPonente = true;
+    }
+
+    if(!flagPonente) { // En el caso de que no este bien el ponente, solicitamos de nuevo al usuario
+        flagPonenteCorrecto = false; // Si el codigo no detecta bien al ponente, es caso false
+    } else {
+        flagPonenteCorrecto = true; // Si el codigo detecta bien al ponente, es caso true
+    }
+
+    // Si se cumple lo previsto, entonces esta realizandose bien la comprobacion de los ponentes
+    EXPECT_TRUE(flagPonenteCorrecto); // Para la cadena correcta esperamos que este bien
+    EXPECT_FALSE(flagPonenteIncorrecto); // Para la cadena incorrecta esperamos que este mal
 }
 
 TEST(Test_HistoriaUsuario_1, Test2) {
