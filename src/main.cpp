@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 #include "usuarioVisitante.hpp"
 #include "usuarioRegistrado.hpp"
@@ -50,15 +51,16 @@ int main(){
 
                     organizador org;
                     while(!flagOut) { // Mientras el usuario no quiera salir, continuamos preguntando opciones
-                        cout << "\n---------------------------------------------" << endl;
+                        cout << "\n---------------------------------------------------------" << endl;
                         cout << "Hola coordinador " << correo << ". Indica qué quieres hacer" << endl;
-                        cout << "---------------------------------------------" << endl;
+                        cout << "-----------------------------------------------------------" << endl;
                         cout << "[1] - Crear actividad" << endl;
                         cout << "[2] - Ver todas las actividades" << endl;
                         cout << "[3] - Cerrar el programa" << endl;
                         cout << "\n> ";
 
                         cin >> optRol;
+                        cout << "\n";
 
                         switch (optRol)  { // Switch para el coordinador
                             case 1: // Creacion de una actividad
@@ -89,13 +91,15 @@ int main(){
                     director dct;
 
                     while(!flagOut) { // Mientras el usuario no quiera salir, continuamos preguntando opciones
-                        cout << "\n---------------------------------------------" << endl;
+                        cout << "\n----------------------------------------------------------------" << endl;
                         cout << "Hola director académico " << correo << ". Indica qué quieres hacer" << endl;
-                        cout << "---------------------------------------------" << endl;
-                        cout << "[3] - Cerrar el programa " << endl;
+                        cout << "------------------------------------------------------------------" << endl;
+                        cout << "[!] No habia ninguna historia de usuario que implicara al director academico. No hay acciones" << endl;
+                        cout << "[Cualquier opcion] - Cerrar el programa " << endl;
                         cout << "\n> ";
 
-                        dct.completarActividad();
+                        cin >> optRol;
+                        flagOut = true;
                     }
                 }
                 break;
@@ -105,9 +109,9 @@ int main(){
                     usuarioRegistrado usuario_r(correo); // Creamos el objeto del usuario registrado con los metodos
 
                     while(!flagOut) { // Mientras el usuario no quiera salir, continuamos preguntando opciones
-                        cout << "\n---------------------------------------------" << endl;
+                        cout << "\n-----------------------------------------------------" << endl;
                         cout << "Hola usuario " << correo << ". Indica qué quieres hacer" << endl;
-                        cout << "---------------------------------------------" << endl;
+                        cout << "-------------------------------------------------------" << endl;
                         cout << "[1] - Ver actividades publicadas" << endl;
                         cout << "[2] - Preeinscribirse en una actividad (Necesitas su código)" << endl;
                         cout << "[3] - Cerrar el programa" << endl;
@@ -123,7 +127,16 @@ int main(){
                             case 2: // Preeinscripción en una actividad
                                 cout << "Introduce el codigo de la actividad a inscribirte: ";
                                 cin >> idActividad;
-                                usuario_r.preinscripcionActividad(idActividad);
+                                if (std::cin.fail() || std::cin.peek() != '\n') {
+                                    std::cout << "No se ingresó un número válido." << std::endl;
+
+                                    // Limpiar el estado de error y el búfer
+                                    std::cin.clear();
+                                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                                } else {
+                                    usuario_r.preinscripcionActividad(idActividad);
+                                }
+
                             break;
 
                             case 3: // Salir del programa

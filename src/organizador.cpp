@@ -6,6 +6,7 @@
 #include <ctime> // Para el manejo de fechas
 #include <iomanip> // Para el manejo de fechas
 #include <limits> // Para limpiar el buffer de entrada
+#include <algorithm>
 
 
 organizador::organizador() {
@@ -15,7 +16,6 @@ organizador::organizador() {
 void organizador::crearActividad() {
     /* PARTE DE LA HISTORIA DE USUARIO OBLIGATORIA : CREAR ACTIVIDAD*/
     int opt, optGuardar; // Para el switch
-    int contador; // Para el control de un unico ponente
     // Variables para obtener los datos de la actividad que quiere crear el usuario
     int aforoActividad;
     int idActividad;
@@ -135,31 +135,33 @@ void organizador::crearActividad() {
     std::cout << "\n> ";
     
     std::cin >> opt;
-
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    
     switch (opt) {
         case 1: // Caso en el que completamos el anuncio
-    
+            
+
             // ----- Pedimos al usuario el nombre de la actividad -----
             std::cout << "Introduce el nombre de la actividad: ";
-            std::cin >> nombreActividad;
+            std::getline(std::cin, nombreActividad);
             actividadNueva.set_nombre(nombreActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
             // ----- Pedimos al usuario la descripcion de la actividad -----
             std::cout << "Introduce la descripcion de la actividad: ";
-            std::cin >> descripcionActividad;
+            std::getline(std::cin, descripcionActividad);
             actividadNueva.set_descripcion(descripcionActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
             // ----- Pedimos al usuario el tema de la actividad -----
             std::cout << "Introduce el tema de la actividad: ";
-            std::cin >> temaActividad;
+            std::getline(std::cin, temaActividad);
             actividadNueva.set_tema(temaActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
             // ----- Pedimos al usuario la ubicacion de la actividad -----
             std::cout << "Introduce la ubicacion de la actividad: ";
-            std::cin >> ubicacionActividad;
+            std::getline(std::cin, ubicacionActividad);
             actividadNueva.set_ubicacion(ubicacionActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
@@ -178,14 +180,13 @@ void organizador::crearActividad() {
             // ----- Pedimos al usuario el ponente de la actividad -----
             while(!flagPonente){
                 std::cout << "Introduce el ponente de la actividad (Si la actividad es una ponencia, mas tarde podras añadir mas): ";
-                std::cin >> ponenteActividad;
+
+                std::cin.ignore();
+
+                std::getline(std::cin, ponenteActividad);
                 
                 // Comprobamos que haya solo un @, osea, que haya solo un ponente
-                for (char c : ponenteActividad) {
-                    if (c == '@') {
-                        contador++;
-                    }
-                }
+                size_t contador = std::count(ponenteActividad.begin(), ponenteActividad.end(), '@');    
                 // Si solo hay un correo, continuamos
                 if(contador==1){
                     flagPonente = true;
@@ -195,8 +196,6 @@ void organizador::crearActividad() {
                     std::cout << "ERROR: Has introducido mas de un ponente o no es un correo" << std::endl;
                 }
                 // Reseteamos el cin para leer correctamente y borramos el buffer de entrada para no leer restos anteriores
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
             }
                 actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
             // ---------------
@@ -258,7 +257,7 @@ void organizador::crearActividad() {
                 if(tipoActividad == "Ponencia") {
                     // ----- Pedimos al usuario los ponentes de la actividad -----
                     std::cout << "Introduce informacion sobre el/los ponente/s de la actividad (Escribe el anterior tambien): ";
-                    std::cin >> ponenteActividad;
+                    std::getline(std::cin, ponenteActividad);
                     actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
                     // ---------------
                 
@@ -266,13 +265,13 @@ void organizador::crearActividad() {
                     if(tipoActividad == "Seminario") {
                         // ----- Pedimos al usuario la duracion de la actividad -----
                         std::cout << "Introduce informacion sobre la duracion de la actividad: ";
-                        std::cin >> duracionActividad;
+                        std::getline(std::cin, duracionActividad);
                         actividadNueva.set_duracion(duracionActividad); // Añadimos el valor al nuevo actividad
                         // ---------------
                         
                         // ----- Pedimos al usuario las tareas de la actividad -----
                         std::cout << "Introduce informacion sobre las tareas de la actividad: ";
-                        std::cin >> tareasActividad;
+                        std::getline(std::cin, tareasActividad);
                         actividadNueva.set_tareas(tareasActividad); // Añadimos el valor al nuevo actividad
                         // ---------------                    
                     
@@ -280,13 +279,13 @@ void organizador::crearActividad() {
                         if(tipoActividad == "Taller") {
                             // ----- Pedimos al usuario el nivel de la actividad -----
                             std::cout << "Introduce informacion sobre el nivel de la actividad: ";
-                            std::cin >> nivelActividad;
+                            std::getline(std::cin, nivelActividad);
                             actividadNueva.set_nivel(nivelActividad); // Añadimos el valor al nuevo actividad
                             // ---------------
                             
                             // ----- Pedimos al usuario los dias de la actividad -----
                             std::cout << "Introduce informacion sobre los dias de la actividad: ";
-                            std::cin >> diasActividad;
+                            std::getline(std::cin, diasActividad);
                             actividadNueva.set_dias(diasActividad); // Añadimos el valor al nuevo actividad
                             // ---------------     
                         }
@@ -394,6 +393,11 @@ void organizador::crearActividad() {
 
         if(optGuardar == 1) { // Guardamos el anuncio
             panel.introducirActividad(actividadNueva, flagActividadGuardada);
+            if(flagActividadGuardada){
+            std::cout << "Actividad guardada correctamente" << std::endl;    
+            } else {
+                std::cout << "No se ha podido guardar el anuncio creado. Saliendo..." << std::endl;
+            }
         } else {
             std::cout << " Anuncio no guardado. Saliendo..." << std::endl;
         }

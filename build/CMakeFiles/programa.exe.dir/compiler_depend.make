@@ -543,6 +543,7 @@ CMakeFiles/programa.exe.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/c++/11/limits \
   ../src/usuarioVisitante.hpp \
   ../src/usuarioRegistrado.hpp \
   ../src/organizador.hpp \
@@ -757,7 +758,13 @@ CMakeFiles/programa.exe.dir/src/organizador.cpp.o: ../src/organizador.cpp \
   /usr/include/c++/11/array \
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bits/invoke.h \
-  /usr/include/c++/11/limits
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h
 
 CMakeFiles/programa.exe.dir/src/panelActividades.cpp.o: ../src/panelActividades.cpp \
   /usr/include/stdc-predef.h \
@@ -1357,12 +1364,6 @@ CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.
 
 ../src/usuarioRegistrado.cpp:
 
-/usr/include/c++/11/bits/stl_heap.h:
-
-/usr/include/c++/11/bits/algorithmfwd.h:
-
-/usr/include/c++/11/bits/stl_algo.h:
-
 /usr/include/c++/11/sstream:
 
 /usr/include/c++/11/bits/fstream.tcc:
@@ -1373,7 +1374,11 @@ CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.
 
 ../src/panelActividades.cpp:
 
-/usr/include/c++/11/limits:
+/usr/include/c++/11/bits/stl_heap.h:
+
+/usr/include/c++/11/bits/algorithmfwd.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
 
 /usr/include/c++/11/bits/uses_allocator.h:
 
@@ -1394,6 +1399,8 @@ CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.
 ../src/organizador.hpp:
 
 ../src/usuarioVisitante.hpp:
+
+/usr/include/c++/11/limits:
 
 ../src/main.cpp:
 

@@ -63,6 +63,7 @@ TEST(Test_HistoriaUsuario_1, Test2) {
     // Test para comprobar que se introduce el anuncio correctamente en el fichero
     // Esta es la cadena que queremos ver si se ha introducido bien al final del fichero
     std::string cadenaAux = "999;1;Seminario;i72ritom@uco.es;Seminario de Inteligencia artificial;Se habla de la IA;25.000000;IA;Campos de Rabanales, Aulario Averroes, P10;50;5.000000;i92mojip@uco.es;20/12/2023;21/12/2023;;Dos horas;Programacion en Python;;;;i72pecaf@uco.es, i81pegun@uco.es;;";
+
     std::string lineaFichero;
     std::string ultimaActividadFichero; // Sera la penultima linea del fichero, ya que la ultima es \n
 

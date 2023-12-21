@@ -571,7 +571,13 @@ CMakeFiles/test_ejecutable.exe.dir/src/organizador.cpp.o: ../src/organizador.cpp
   /usr/include/c++/11/bits/quoted_string.h \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/bits/sstream.tcc \
-  /usr/include/c++/11/limits
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h
 
 CMakeFiles/test_ejecutable.exe.dir/src/panelActividades.cpp.o: ../src/panelActividades.cpp \
   /usr/include/stdc-predef.h \
@@ -2778,6 +2784,16 @@ CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_3.cpp.o: ../tests/test_hi
 
 /usr/include/c++/11/limits:
 
+/usr/include/asm-generic/int-ll64.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
+
+/usr/include/c++/11/bits/algorithmfwd.h:
+
+/usr/include/c++/11/bits/std_abs.h:
+
+/usr/include/c++/11/bits/stl_heap.h:
+
 ../src/panelActividades.cpp:
 
 ../tests/test_historia_1.cpp:
@@ -2791,16 +2807,6 @@ CMakeFiles/test_ejecutable.exe.dir/tests/test_historia_3.cpp.o: ../tests/test_hi
 /usr/include/asm-generic/posix_types.h:
 
 /usr/include/c++/11/bits/fstream.tcc:
-
-/usr/include/asm-generic/int-ll64.h:
-
-/usr/include/c++/11/bits/stl_algo.h:
-
-/usr/include/c++/11/bits/algorithmfwd.h:
-
-/usr/include/c++/11/bits/std_abs.h:
-
-/usr/include/c++/11/bits/stl_heap.h:
 
 ../src/usuarioRegistrado.cpp:
 

@@ -420,6 +420,8 @@ void panelActividades::preinscribirUsuario(int idActividad, std::string nombreUs
 
             // Renombramos el fichero temporal al nombre original
             std::rename("tempfile.txt", this->get_listaActividades().c_str());
+            
+            std::cout << "\nUsuario inscrito en la actividad" << std::endl;
         }
 
         } else {
