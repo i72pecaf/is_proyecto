@@ -7,6 +7,7 @@
 #include <iomanip> // Para el manejo de fechas
 #include <limits> // Para limpiar el buffer de entrada
 #include <algorithm>
+#include <ctype.h>
 
 
 organizador::organizador() {
@@ -36,6 +37,8 @@ void organizador::crearActividad() {
     std::string nivelActividad;
     std::string diasActividad;
     std::string tipoDebateActividad;
+    std::string aforoActividadString;
+    std::string precioActividadString;
 
     // Usamos la libreria ctime de C para el tratamiento de fechas 
     struct tm fechaInicioActividad, fechaFinActividad;
@@ -165,15 +168,27 @@ void organizador::crearActividad() {
             actividadNueva.set_ubicacion(ubicacionActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
-            // ----- Pedimos al usuario el aforo de la actividad -----
+              // ----- Pedimos al usuario el aforo de la actividad -----
             std::cout << "Introduce el aforo de la actividad: ";
-            std::cin >> aforoActividad;
+            std::getline(std::cin, aforoActividadString);
+            try{
+                aforoActividad = stoi(aforoActividadString);
+            } catch (const std::invalid_argument& e) {
+                std::cout << "ERROR: El parametro no es un numero, terminando programa" << std::endl;
+                return;
+            }
             actividadNueva.set_aforo(aforoActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
             // ----- Pedimos al usuario el precio de la actividad -----
             std::cout << "Introduce el precio de la actividad: ";
-            std::cin >> precioActividad;
+            std::getline(std::cin, precioActividadString);
+            try{
+            precioActividad = stoi(precioActividadString);
+            } catch (const std::invalid_argument& e) {
+                std::cout << "ERROR: El parametro no es un numero, terminando programa" << std::endl;
+                return;
+            }
             actividadNueva.set_precio(precioActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
