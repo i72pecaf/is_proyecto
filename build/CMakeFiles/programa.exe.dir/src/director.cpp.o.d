@@ -145,4 +145,11 @@ CMakeFiles/programa.exe.dir/src/director.cpp.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc
+ /usr/include/c++/11/bits/istream.tcc \
+ /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/src/panelActividades.hpp \
+ /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/c++/11/bits/stl_vector.h \
+ /usr/include/c++/11/bits/stl_bvector.h \
+ /usr/include/c++/11/bits/vector.tcc \
+ /mnt/c/Users/Fran/Documents/GitHub/is_proyecto/src/actividad.hpp \
+ /usr/include/c++/11/ctime

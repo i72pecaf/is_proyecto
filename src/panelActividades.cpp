@@ -333,7 +333,6 @@ void panelActividades::preinscribirUsuario(int idActividad, std::string nombreUs
     fin.close();
 
     if(flagEncontrado){
-        //std::cout<< " La actividad " << idActividad << " tiene de aforo: " << aforoActividad << " y su lista es: " << cadlistaPreinscritos << std::endl;
         // Para saber cuantos hay en la lista cuento las comas
         for (char c : cadlistaPreinscritos) {
             if (c == ',') {

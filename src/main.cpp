@@ -51,7 +51,7 @@ int main(){
 
                     organizador org;
                     while(!flagOut) { // Mientras el usuario no quiera salir, continuamos preguntando opciones
-                        cout << "\n---------------------------------------------------------" << endl;
+                        cout << "\n----------------------------------------------------------" << endl;
                         cout << "Hola coordinador " << correo << ". Indica qué quieres hacer" << endl;
                         cout << "-----------------------------------------------------------" << endl;
                         cout << "[1] - Crear actividad" << endl;
@@ -91,15 +91,24 @@ int main(){
                     director dct;
 
                     while(!flagOut) { // Mientras el usuario no quiera salir, continuamos preguntando opciones
-                        cout << "\n----------------------------------------------------------------" << endl;
+                        cout << "\n-----------------------------------------------------------------" << endl;
                         cout << "Hola director académico " << correo << ". Indica qué quieres hacer" << endl;
                         cout << "------------------------------------------------------------------" << endl;
-                        cout << "[!] No habia ninguna historia de usuario que implicara al director academico. No hay acciones" << endl;
+                        cout << "[1] Ver actividades publicadas" << endl;
                         cout << "[Cualquier opcion] - Cerrar el programa " << endl;
                         cout << "\n> ";
 
                         cin >> optRol;
-                        flagOut = true;
+                        switch (optRol)  { // Switch para el usuario registrado
+                            case 1: // Ver actividades publicadas
+                                dct.verActividadesPublicadas();
+                            break;
+
+                            default: // Error al introducir una opcion no existente
+                                cout << "\nSaliendo del programa..." << endl;
+                                flagOut = true;
+                            break;
+                        }
                     }
                 }
                 break;
@@ -109,7 +118,7 @@ int main(){
                     usuarioRegistrado usuario_r(correo); // Creamos el objeto del usuario registrado con los metodos
 
                     while(!flagOut) { // Mientras el usuario no quiera salir, continuamos preguntando opciones
-                        cout << "\n-----------------------------------------------------" << endl;
+                        cout << "\n------------------------------------------------------" << endl;
                         cout << "Hola usuario " << correo << ". Indica qué quieres hacer" << endl;
                         cout << "-------------------------------------------------------" << endl;
                         cout << "[1] - Ver actividades publicadas" << endl;

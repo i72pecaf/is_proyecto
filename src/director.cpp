@@ -1,4 +1,5 @@
 #include "director.hpp"
+#include "panelActividades.hpp"
 #include <iostream>
 
 director::director() {
@@ -14,7 +15,9 @@ void director::completarActividad() {
 }
 
 void director::verActividadesPublicadas() {
-    
+    panelActividades panel;
+    // Se muestran solo los anuncios publicados
+    panel.mostrarActividades(true);
 }
 
 void director::rollbackInscripcionAnuncio() {
