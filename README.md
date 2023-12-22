@@ -2,7 +2,7 @@
 Repositorio con las prácticas de la asignatura de Ingeniería del Software. Curso 2023/2024. Equipo 104.
 
 
-Para compilar borrar la carpeta build (si existiera) y:
+Para compilar: borrar la carpeta build (si existiera) y realizar los siguientes comandos:
 - mkdir build
 - cd build
 - cmake ..
