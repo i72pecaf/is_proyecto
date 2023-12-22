@@ -210,7 +210,7 @@ void organizador::crearActividad() {
                 }
                 // Reseteamos el cin para leer correctamente y borramos el buffer de entrada para no leer restos anteriores
             }
-                std::cout<<"Ponentee: " << ponenteActividad << std::endl;
+
                 actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
@@ -229,9 +229,6 @@ void organizador::crearActividad() {
 
                 if ((ssInicio >> std::get_time(&fechaInicioActividad, "%d/%m/%Y")) &&
                     (ssFin >> std::get_time(&fechaFinActividad, "%d/%m/%Y"))) {
-
-                    std::cout << "FechaInicio: " << std::put_time(&fechaInicioActividad, "%d/%m/%Y") << std::endl;
-                    std::cout << "FechaFin: " << std::put_time(&fechaFinActividad, "%d/%m/%Y") << std::endl;
 
                     if (ssInicio.eof() && ssFin.eof() &&
                         std::mktime(&fechaInicioActividad) <= std::mktime(&fechaFinActividad)) {

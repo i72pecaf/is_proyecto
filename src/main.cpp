@@ -53,7 +53,7 @@ int main(){
                     while(!flagOut) { // Mientras el usuario no quiera salir, continuamos preguntando opciones
                         cout << "\n----------------------------------------------------------" << endl;
                         cout << "Hola coordinador " << correo << ". Indica qué quieres hacer" << endl;
-                        cout << "-----------------------------------------------------------" << endl;
+                        cout << "----------------------------------------------------------" << endl;
                         cout << "[1] - Crear actividad" << endl;
                         cout << "[2] - Ver todas las actividades" << endl;
                         cout << "[3] - Cerrar el programa" << endl;

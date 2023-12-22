@@ -1,2 +1,2 @@
-999;1;Seminario;i72ritom@uco.es;Seminario de Inteligencia artificial;Se habla de la IA;25.000000;IA;Campos de Rabanales, Aulario Averroes, P10;2;5.000000;i92mojip@uco.es;20/12/2023;21/12/2023;;Dos horas;Programacion en Python;;;;i72pecaf@uco.es, i81pegun@uco.es;;
+999;1;Seminario;i72ritom@uco.es;Seminario de Inteligencia artificial;Se habla de la IA;25.000000;IA;Campos de Rabanales, Aulario Averroes, P10;10;5.000000;i92mojip@uco.es;20/12/2023;21/12/2023;;Dos horas;Programacion en Python;;;;i72pecaf@uco.es, i81pegun@uco.es, a12ritop@uco.es;a12ritop@uco.es;
 1703194981;0;Debate;j55reora@uco.es;Debate de IA en el arte;Debatimos sobre la IA y el Arte;20.000000;IA y Arte;Campus de Rabanales, C2, Aula B2;5;0.000000;i92regaj@uco.es;11/12/2023;12/12/2023;Ordinario;;;;;;;;
