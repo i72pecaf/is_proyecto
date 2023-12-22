@@ -122,7 +122,7 @@ int main(){
                         cout << "Hola usuario " << correo << ". Indica qué quieres hacer" << endl;
                         cout << "-------------------------------------------------------" << endl;
                         cout << "[1] - Ver actividades publicadas" << endl;
-                        cout << "[2] - Preeinscribirse en una actividad (Necesitas su código)" << endl;
+                        cout << "[2] - Preinscribirse en una actividad (Necesitas su código)" << endl;
                         cout << "[3] - Cerrar el programa" << endl;
                         cout << "\n> ";
 

@@ -772,7 +772,9 @@ CMakeFiles/programa.exe.dir/src/organizador.cpp.o: ../src/organizador.cpp \
   /usr/include/c++/11/bits/algorithmfwd.h \
   /usr/include/c++/11/bits/stl_heap.h \
   /usr/include/c++/11/bits/stl_tempbuf.h \
-  /usr/include/c++/11/bits/uniform_int_dist.h
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc
 
 CMakeFiles/programa.exe.dir/src/panelActividades.cpp.o: ../src/panelActividades.cpp \
   /usr/include/stdc-predef.h \
@@ -1372,8 +1374,6 @@ CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.
 
 ../src/usuarioRegistrado.cpp:
 
-/usr/include/c++/11/sstream:
-
 /usr/include/c++/11/bits/fstream.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
@@ -1381,6 +1381,8 @@ CMakeFiles/programa.exe.dir/src/usuarioVisitante.cpp.o: ../src/usuarioVisitante.
 /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
 
 ../src/panelActividades.cpp:
+
+/usr/include/c++/11/sstream:
 
 /usr/include/c++/11/bits/stl_heap.h:
 

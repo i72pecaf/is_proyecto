@@ -8,7 +8,7 @@
 #include <limits> // Para limpiar el buffer de entrada
 #include <algorithm>
 #include <ctype.h>
-
+#include <sstream>
 
 organizador::organizador() {
 
@@ -196,8 +196,6 @@ void organizador::crearActividad() {
             while(!flagPonente){
                 std::cout << "Introduce el ponente de la actividad (Si la actividad es una ponencia, mas tarde podras añadir mas): ";
 
-                std::cin.ignore();
-
                 std::getline(std::cin, ponenteActividad);
                 
                 // Comprobamos que haya solo un @, osea, que haya solo un ponente
@@ -212,37 +210,45 @@ void organizador::crearActividad() {
                 }
                 // Reseteamos el cin para leer correctamente y borramos el buffer de entrada para no leer restos anteriores
             }
+                std::cout<<"Ponentee: " << ponenteActividad << std::endl;
                 actividadNueva.set_ponente(ponenteActividad); // Añadimos el valor al nuevo actividad
             // ---------------
 
 
-            // ----- Pedimos al usuario los ponentes de la actividad -----
-            while(!flagFechas){ // Pedimos las fechas hasta que sean validas
-                
-                std::cout << "Introduce la fecha de inicio de la actividad (day/month/year): ";
-                std::cin >> std::get_time(&fechaInicioActividad, "%d/%m/%Y"); // Usamos get_time para leer la fecha y guardarla en la estructura
+            // ----- Pedimos al usuario los ponentes de la actividad ----- 
+            while (!flagFechas) {
+                std::string fechaInicioStr, fechaFinStr;
 
-                if(!std::cin.fail()) { // Comprobamos que la primera fecha esta correctamente escrita
-                    
-                    std::cout << "Introduce la fecha de fin de la actividad (day/month/year): ";
-                    std::cin >> std::get_time(&fechaFinActividad, "%d/%m/%Y"); // Usamos get_time para leer la fecha y guardarla en la estructura
+                std::cout << "Introduce la fecha de inicio de la actividad (dd/mm/yyyy): ";
+                std::getline(std::cin, fechaInicioStr);
 
-                    if(!std::cin.fail()) { // Comprobamos que la segunda fecha esta correctamente escrita
-                        // Ahora comprobamos que la fecha de inicio sea anterior que la fecha final
-                        if(std::mktime(&fechaInicioActividad) <= std::mktime(&fechaFinActividad)){ // En caso de que esten bien...
-                            flagFechas = true; // ...entonces lo marcamos como que estan bien las fechas
-                        }
-                    }                
+                std::cout << "Introduce la fecha de fin de la actividad (dd/mm/yyyy): ";
+                std::getline(std::cin, fechaFinStr);
+
+                std::istringstream ssInicio(fechaInicioStr), ssFin(fechaFinStr);
+
+                if ((ssInicio >> std::get_time(&fechaInicioActividad, "%d/%m/%Y")) &&
+                    (ssFin >> std::get_time(&fechaFinActividad, "%d/%m/%Y"))) {
+
+                    std::cout << "FechaInicio: " << std::put_time(&fechaInicioActividad, "%d/%m/%Y") << std::endl;
+                    std::cout << "FechaFin: " << std::put_time(&fechaFinActividad, "%d/%m/%Y") << std::endl;
+
+                    if (ssInicio.eof() && ssFin.eof() &&
+                        std::mktime(&fechaInicioActividad) <= std::mktime(&fechaFinActividad)) {
+                        flagFechas = true;
+                    }
                 }
 
-                if(!flagFechas) { // En el caso de que las fechas no sean correctas, solicitamos de nuevo al usuario
+                if (!flagFechas) {
                     std::cout << "ERROR: Las fechas no son correctas, vuelve a intentarlo" << std::endl;
-                }
-                // Reseteamos el cin para leer correctamente y borramos el buffer de entrada para no leer restos anteriores
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-            }
 
+                    // Limpiamos el cin y descartamos la entrada no válida
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                }
+            }
+            //std::cout << "FechaInicio:" << std::put_time(&fechaInicioActividad, "%d/%m/%Y") << std::endl;
+            //std::cout << "FechaFin:" << std::put_time(&fechaFinActividad, "%d/%m/%Y") << std::endl;
             actividadNueva.set_fechaInicio(fechaInicioActividad); // Añadimos el valor al nuevo actividad   
             actividadNueva.set_fechaFinal(fechaFinActividad); // Añadimos el valor al nuevo actividad      
             // ---------------
